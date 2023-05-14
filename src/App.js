@@ -1,5 +1,5 @@
 import { ItemListContainer } from "./components/ItemsListContainer/ItemsListContainer";
-import {Footer, Header, ItemCount, NavBar} from "./components"
+import {Footer, Header, ItemCount, ItemDetailContainer, NavBar} from "./components"
 import "./style.css"
 // import { ItemList } from "./components/itemList/ItemList";
 function App() {
@@ -9,9 +9,10 @@ function App() {
 
 <NavBar></NavBar>
 <Header></Header>
-<ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>
-{/* <ItemList></ItemList> */}
-<ItemCount></ItemCount>
+{/* <ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>
+{/* <ItemList></ItemList> }
+  <ItemCount></ItemCount>*/}
+ <ItemDetailContainer></ItemDetailContainer>
 <Footer></Footer>
 </>
   );
