@@ -1,6 +1,6 @@
 import { CartWidget } from "../CartWidget/CartWidget"
 
-export const NavBar = () => {
+const NavBar = () => {
     return(
 <nav className="navbar navbar-expand-lg bg-primary ">
   <div className="container-fluid bg-primary">
@@ -26,7 +26,7 @@ export const NavBar = () => {
           <li><a className="dropdown-item" href="#">Celulares</a></li>
           <li><a className="dropdown-item" href="#">Televisores</a></li>
           <li><a className="dropdown-item" href="#">Computadoras</a></li>
-          <li><a className="dropdown-item" href="#">Parlantes</a></li>
+          <li><a className="dropdown-item" href="#">Ropa</a></li>
           <li><a className="dropdown-item" href="#">Aire acondiconado</a></li>
         </ul>
         </div>
@@ -42,3 +42,5 @@ export const NavBar = () => {
 </nav>
     )
 }
+
+export {NavBar}

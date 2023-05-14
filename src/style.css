@@ -1,0 +1,41 @@
+.card-img, .card-img-bottom, .card-img-top {
+    width: 150px;
+    align-self: center;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.body .productsContainer
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div h1
+{
+    text-align: center;
+    margin: 15px;
+}
+.card-img{
+    width: 33%;
+}
+
+.card 
+{
+width: 30%;
+margin: 25px;
+}
+
+
+.agregar
+{
+    align-self: center;
+}
+
+.card-sody
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
