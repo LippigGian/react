@@ -121,3 +121,26 @@ export const getProducts = () => {
         }, 500)
     })
 }
+
+export const pedirItemPorId =(id) =>
+{
+ 
+    return new Promise ((res, rejected)=>
+    {   
+        const item = products.find((elemento)=> elemento.id === id)
+        if(item)
+        {
+        res(item)
+        }
+        else
+        {   
+            rejected (
+                {
+                    error: "no se encontro el producto"
+                }
+            )
+        }
+
+   
+    })
+}

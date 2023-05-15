@@ -1,20 +1,27 @@
 import { ItemListContainer } from "./components/ItemsListContainer/ItemsListContainer";
 import {Footer, Header, ItemCount, ItemDetailContainer, NavBar} from "./components"
 import "./style.css"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { ItemList } from "./components/itemList/ItemList";
 function App() {
   return (
-    <>
+  
+
+<BrowserRouter>
+<NavBar/>
+<Header/>
+
+<Routes>
+    <Route path="/" element={<ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>}></Route>
+    <Route path="/count" element={ <ItemCount></ItemCount>}></Route>
+    <Route path="/item/:id"  element={<ItemDetailContainer></ItemDetailContainer>}></Route>
+ {/* <ItemList></ItemList>  */}
 
 
-<NavBar></NavBar>
-<Header></Header>
-{/* <ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>
-{/* <ItemList></ItemList> }
-  <ItemCount></ItemCount>*/}
- <ItemDetailContainer></ItemDetailContainer>
+</Routes>
 <Footer></Footer>
-</>
+</BrowserRouter>
+
   );
 }
 
