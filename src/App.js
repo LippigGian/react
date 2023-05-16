@@ -2,7 +2,7 @@ import { ItemListContainer } from "./components/ItemsListContainer/ItemsListCont
 import {Footer, Header, ItemCount, ItemDetailContainer, NavBar} from "./components"
 import "./style.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { ItemList } from "./components/itemList/ItemList";
+
 function App() {
   return (
   
