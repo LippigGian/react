@@ -15,9 +15,9 @@ const NavBar = () => {
           <Link className="nav-link text-white" to="/contact-us">Contacto</Link>
         </li>
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle text-white " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link className="nav-link dropdown-toggle text-white " to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Productos
-          </a>
+          </Link>
           <div className="products">
         <ul className="dropdown-menu">
           <li><Link className="dropdown-item" to="/productos/celulares">Celulares</Link></li>

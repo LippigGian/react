@@ -13,7 +13,7 @@ const Footer = () =>{
             <div className="col-md-6">
               <ul className="list-unstyled">
                 <li><Link to="/contact-us">Contactanos</Link></li>
-                <li><a href="#">Terminos y condiciones</a></li>
+                <li><Link to="#">Terminos y condiciones</Link></li>
               </ul>
             </div>
           </div>

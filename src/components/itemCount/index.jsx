@@ -4,7 +4,6 @@ const ItemCount = (product) =>
 {
 
     const [sumar, setSumar]=useState(0)
-    const [total, setTotal]=useState(0)
 
     const sumarCarrito =()=>
     {
@@ -15,16 +14,12 @@ const ItemCount = (product) =>
         setSumar(sumar-1)
     }
 
-    const sumartotal =()=>
-    {
-     const total =product.precio * sumar  
-     setTotal(total) 
-    }
+
 const agregarAlCarrito = () =>
 {
-    console.log("se agrego al carrito "+sumar+" unidades del producto "+product.nombre+ "y el total es: "+total)
+    console.log("se agrego al carrito "+sumar+" unidades del producto "+product.nombre)
     setSumar(0)
-    sumartotal()
+
 }
 
     return (
