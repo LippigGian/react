@@ -2,26 +2,22 @@ import { ItemCount } from "../itemCount"
 
 const ItemDetail = ({item}) =>
 {
-   console.log(item)
+
     return (
             <div className="detail">
                 
     <img className="detail-img" src={item.imagen} alt="Card cap"></img>
         <div className="card-sody">
-          <h5 className="card-title">{item.nombre}</h5>
-          <p className="card-text">Descripcion: {item.desc}.</p>
+          <h1 className="card-title">{item.nombre}</h1>
+          <h4 className="card-text">Descripcion: {item.desc}.</h4>
            {item.talle && <h4 className="card-subtitle"> Talle: {item.talle}</h4>}
           <h3 className="card-text"> Precio ${item.precio}</h3>
           <h4>{item.categoria}</h4>
-          <h4>{item.cantidad}</h4>
-         
+          <h4>Stock disponible: {item.cantidad}</h4>
                 <h3>{item.tipo}</h3>
-              
-                <ItemCount id={item.id}></ItemCount>
+                <ItemCount id={item.id} nombre={item.nombre} precio={item.precio}></ItemCount>
             </div>
-            
         </div>
-       
     )
 }
 

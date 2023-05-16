@@ -10,8 +10,6 @@ Ahora nos devuelve un string por eso lo transformamos a number*/
 const id = useParams().id;
     const [item, setItem] = useState(null)
 
-    console.log(id)
-    console.log(item)
     useEffect(() => {
         pedirItemPorId(Number(id))
         .then((res)=>{

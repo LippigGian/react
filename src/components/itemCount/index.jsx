@@ -1,25 +1,30 @@
-import { useState } from "react"
 
-const ItemCount = (id) =>
+import { useState } from "react"
+const ItemCount = (product) =>
 {
 
     const [sumar, setSumar]=useState(0)
+    const [total, setTotal]=useState(0)
 
     const sumarCarrito =()=>
     {
         setSumar(sumar+1)
-    
     }
     const restarCarrito =()=>
     {
         setSumar(sumar-1)
-       
     }
 
+    const sumartotal =()=>
+    {
+     const total =product.precio * sumar  
+     setTotal(total) 
+    }
 const agregarAlCarrito = () =>
 {
-    console.log("se agrego al carrito "+sumar+" unidades del producto "+id.id)
+    console.log("se agrego al carrito "+sumar+" unidades del producto "+product.nombre+ "y el total es: "+total)
     setSumar(0)
+    sumartotal()
 }
 
     return (
@@ -31,8 +36,6 @@ const agregarAlCarrito = () =>
        </div>
        <button className="btn btn-primary agregar" onClick={agregarAlCarrito}>Agregar al carrito</button>
        </div>
-       
-
-    )
+        )
 }
 export {ItemCount}

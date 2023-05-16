@@ -7,7 +7,6 @@ export const ItemListContainer = ({greeting}) =>{
     const[products, setProducts]=useState([]);
     const[titulo, setTitulo]=useState("Productos")
     const category =useParams().category;
-    console.log(category)
 
     useEffect(()=>{
         getProducts()
@@ -32,7 +31,7 @@ export const ItemListContainer = ({greeting}) =>{
     return(
         <div className="body">
             <h1>{greeting}</h1>
-            <h2>{titulo}</h2>
+            <h2 className="title">{titulo}:</h2>
             
             <ItemList products={products}  key={products.id}></ItemList>
         </div>

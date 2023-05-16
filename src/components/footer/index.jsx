@@ -1,10 +1,26 @@
+import {Link} from"react-router-dom"
 const Footer = () =>{
 
     return (
-        <header style={{background: "#333", color:"#FFF", height:30}}>
+       
+        <footer style={{background: "#333", color:"#FFF"}} className="footer">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              {/* <a href="https://example.com"><img src="https://example.com/assets/img/logo.png" alt="Company Logo"></a> */}
+              <p>Copyright &copy; 2023 E-commerce</p>
+            </div>
+            <div className="col-md-6">
+              <ul className="list-unstyled">
+                <li><Link to="/contact-us">Contactanos</Link></li>
+                <li><a href="#">Terminos y condiciones</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
 
-            Este es el footer
-        </header>
     )
 }
 export {Footer}
+

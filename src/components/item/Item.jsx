@@ -10,11 +10,11 @@ export const Item =({nombre, tipo, desc, precio, talle, cantidad, id, imagen, ca
         <img className="card-img-top img" src={imagen} alt="Card cap"></img>
         <div className="card-sody">
           <h5 className="card-title">{nombre}</h5>
-          <p className="card-text">Descripcion: {desc}.</p>
-           {talle && <h4 className="card-subtitle"> Talle: {talle}</h4>}
+          {/* <p className="card-text">Descripcion: {desc}.</p> */}
+           {/* {talle && <h4 className="card-subtitle"> Talle: {talle}</h4>} */}
           <h3 className="card-text"> Precio ${precio}</h3>
           <h4>{categoria}</h4>
-          <h4>{cantidad}</h4>
+          <h4>Stock disponible: {cantidad}</h4>
           <Link  id={id} className="btn btn-secondary agregar" to={`/item/${id}`}>Ver detalle del producto</Link>
           {/* <button  id={id} className="btn btn-primary agregar" >Agregar al carrito</button> */}
           

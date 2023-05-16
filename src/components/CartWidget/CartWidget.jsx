@@ -1,6 +1,7 @@
 import cart from "./Assets/icon-cart.png"
 
 export const CartWidget = () => {
+
     return(
 
         <div>

@@ -12,29 +12,23 @@ const NavBar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active text-white " aria-current="page" href="#">Inicio</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-white" href="#">Contacto</a>
+          <Link className="nav-link text-white" to="/contact-us">Contacto</Link>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle text-white " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Productos
           </a>
-     
           <div className="products">
         <ul className="dropdown-menu">
           <li><Link className="dropdown-item" to="/productos/celulares">Celulares</Link></li>
           <li><Link className="dropdown-item" to="/productos/televisores">Televisores</Link></li>
           <li><Link className="dropdown-item" to="/productos/computadoras">Computadoras</Link></li>
           <li><Link className="dropdown-item" to="/productos/ropa">Ropa</Link></li>
-          <li><Link className="dropdown-item" to="/productos/aire-acondicionado">Aire acondiconado</Link></li>
+          <li><Link className="dropdown-item" to="/productos/aire acondicionado">Aire acondiconado</Link></li>
         </ul>
         </div>
-       
         </li>
       </ul>
-     
       <CartWidget></CartWidget>
       
     </div>
