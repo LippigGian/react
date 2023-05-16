@@ -39,3 +39,27 @@ margin: 25px;
     flex-direction: column;
     text-align: center;
 }
+.producto-detalles-botones
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botonera
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-img
+{
+    width: 50%;
+}
+
+.detail
+{
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

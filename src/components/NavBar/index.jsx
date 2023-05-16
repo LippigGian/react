@@ -24,11 +24,11 @@ const NavBar = () => {
      
           <div className="products">
         <ul className="dropdown-menu">
-          <li><a className="dropdown-item" href="#">Celulares</a></li>
-          <li><a className="dropdown-item" href="#">Televisores</a></li>
-          <li><a className="dropdown-item" href="#">Computadoras</a></li>
-          <li><a className="dropdown-item" href="#">Ropa</a></li>
-          <li><a className="dropdown-item" href="#">Aire acondiconado</a></li>
+          <li><Link className="dropdown-item" to="/productos/celulares">Celulares</Link></li>
+          <li><Link className="dropdown-item" to="/productos/televisores">Televisores</Link></li>
+          <li><Link className="dropdown-item" to="/productos/computadoras">Computadoras</Link></li>
+          <li><Link className="dropdown-item" to="/productos/ropa">Ropa</Link></li>
+          <li><Link className="dropdown-item" to="/productos/aire-acondicionado">Aire acondiconado</Link></li>
         </ul>
         </div>
        

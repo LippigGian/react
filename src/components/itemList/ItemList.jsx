@@ -9,7 +9,7 @@ return(
         return(
             <>
         <Item key={product.id}{...product}></Item>
-        <ItemCount cantidad = {product.cantidad}></ItemCount>
+        {/* <ItemCount cantidad = {product.cantidad}></ItemCount> */}
         </>
         )
     } )}

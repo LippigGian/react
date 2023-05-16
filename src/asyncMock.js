@@ -118,7 +118,7 @@ export const getProducts = () => {
         setTimeout(()=>
         {
             res(products)
-        }, 500)
+        }, 10)
     })
 }
 
