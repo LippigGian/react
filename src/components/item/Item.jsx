@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const Item =({nombre, tipo, desc, precio, talle, cantidad, id, imagen, categoria})=> {
+export const Item =({nombre, tipo, desc, precio, talle, stock, id, imagen, categoria})=> {
     
     return (
       
@@ -14,7 +14,7 @@ export const Item =({nombre, tipo, desc, precio, talle, cantidad, id, imagen, ca
            {/* {talle && <h4 className="card-subtitle"> Talle: {talle}</h4>} */}
           <h3 className="card-text"> Precio ${precio}</h3>
           <h4>{categoria}</h4>
-          <h4>Stock disponible: {cantidad}</h4>
+          <h4>Stock disponible: {stock}</h4>
           <Link  id={id} className="btn btn-secondary agregar" to={`/item/${id}`}>Ver detalle del producto</Link>
           {/* <button  id={id} className="btn btn-primary agregar" >Agregar al carrito</button> */}
           
