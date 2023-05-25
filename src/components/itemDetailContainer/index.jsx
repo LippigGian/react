@@ -19,7 +19,7 @@ const id = useParams().id;
  
     return(
         <div>
-            { item &&
+            { item && 
          <ItemDetail item={item}></ItemDetail>
         }
         </div>

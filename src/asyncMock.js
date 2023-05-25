@@ -20,7 +20,7 @@ const products =
         desc: "Una remera que re va con vos",
         precio: 500,
         talle: "L",
-        imagen: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/252/220/products/f837fd4d-2d65-4fd5-ae20-12be9d9ad49f-6a59ba39e3b162a4b016675770109683-640-0.webp',
+        imagen: 'https://taverniti.vteximg.com.br/arquivos/ids/224635-2000-2500/04668_619X4.jpg?v=637520237395700000',
         stock: 4
     },
 

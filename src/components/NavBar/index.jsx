@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom"
-import { CartWidget } from "../CartWidget/CartWidget"
+import { useContext } from "react"
+import { CartContext } from "../shoppingCartContext/ShoppingCartContext"
+import carrito from "../CartWidget/Assets/icon-cart.png"
 
 const NavBar = () => {
+  const [cart, setCart] =useContext(CartContext);
+  const quantity = cart.reduce((acc, currentItem ) => {
+return acc + currentItem.quantity;
+  },0 );
     return(
 <nav className="navbar navbar-expand-lg bg-primary ">
   <div className="container-fluid bg-primary">
@@ -29,9 +35,14 @@ const NavBar = () => {
         </div>
         </li>
       </ul>
-      <CartWidget></CartWidget>
       
-    </div>
+      <div>
+
+<Link to="/cart"><img src={carrito} alt="cart-widget"></img></Link>
+({quantity})
+
+</div>
+  </div>
   </div>
 
 </nav>

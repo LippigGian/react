@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { ItemCount } from "../itemCount"
+import { CartContext } from "../shoppingCartContext/ShoppingCartContext"
 
 const ItemDetail = ({item}) =>
 {
+   
     const [cantidad, setCantidad]=useState(0)
+    const [cart, setCart] = useContext(CartContext)
 
     const sumarCarrito =()=>
     {
@@ -18,10 +21,35 @@ const ItemDetail = ({item}) =>
     /*usamos el spread operator para llamar al objeto completo y agregarle la propiedad "cantidad". ya que al hacerle el pedido a la base de datos le voy a tener que decir
     cuantos el cliente eligió*/
 {
-  console.log({...item, cantidad})
-    console.log({...item, stock: (item.stock-cantidad)})
-    console.log("se agrego al carrito "+cantidad+" unidades del producto "+item.nombre)
+
+    // console.log({...item, cantidad})
+    // console.log({...item, stock: (item.stock-cantidad)})
+    // console.log("se agrego al carrito "+cantidad+" unidades del producto "+item.nombre)
+
     setCantidad(0)
+    setCart((currentItems)=>{
+        const isItemFound = currentItems.find((items)=> items.id === item.id);
+        if(isItemFound)
+        {
+            return currentItems.map((items)=>{
+                if(items.id === item.id)
+                {
+                    console.log("ya se encontraba")
+                    return {...items, quantity: item.quantity+1}
+                }
+                else
+                {
+                    return item;
+                }
+            
+            })
+        }
+        else
+        {
+            return [...currentItems, {  quantity: 1}]
+        }
+
+    })
 
 }
 

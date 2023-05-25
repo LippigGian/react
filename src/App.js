@@ -1,13 +1,14 @@
 import { ItemListContainer } from "./components/ItemsListContainer/ItemsListContainer";
-import {Footer, ItemCount, ItemDetailContainer, NavBar} from "./components"
+import {Footer, ItemCount, ItemDetailContainer, NavBar, ShoppingCart} from "./components"
 import "./style.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ContactUs } from "./pages/contactUs/ContactUs";
+import { ShoppingCartProvider } from "./components/shoppingCartContext/ShoppingCartContext";
 
 function App() {
   return (
   
-
+<ShoppingCartProvider>
 <BrowserRouter>
 <NavBar/>
 
@@ -18,13 +19,14 @@ function App() {
     <Route path="/count" element={ <ItemCount></ItemCount>}></Route>
     <Route path="/item/:id"  element={<ItemDetailContainer></ItemDetailContainer>}></Route>
     <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
+    <Route path="/cart" element={ <ShoppingCart></ShoppingCart>}></Route>
  {/* <ItemList></ItemList>  */}
 
 
 </Routes>
 <Footer></Footer>
 </BrowserRouter>
-
+</ShoppingCartProvider>
   );
 }
 
