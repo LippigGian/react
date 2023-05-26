@@ -88,8 +88,23 @@ const filtrar = (terminoBusqueda)=>{
     })
     setProducts(resultadoDeBusqueda)
 }
+
+// const ordenar =()=>{
+//     console.log("se ordena padre")
+//     setProducts(products.sort((a,b)=>{
+//         if(a.nombre.toLowerCase() < b.nombre.toLowerCase()){
+//             return -1;
+//         }
+//         if(a.nombre.toLowerCase() > b.nombre.toLowerCase()){
+//             return 1;
+//         }
+//         return 0;
+        
+//     }))}
+    
     return(
         <div className="body">
+            {/* <button onClick={()=>ordenar()}>Ordenar Array</button> */}
             <div className="container-input">
                 <input 
                 className="form-control input buscar" 
@@ -112,7 +127,9 @@ const filtrar = (terminoBusqueda)=>{
                 <Link id={product.id} className="btn btn-secondary agregar" to={`/fbdocument/${product.id}`}>
                 Ver detalle del producto
                 </Link>
+                
             </div>
+            
         </div>)
         })}
             </div>
