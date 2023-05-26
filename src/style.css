@@ -108,3 +108,13 @@ html {
 .containerLoader h2{
   font-size: 50px;
 }
+.backBotton{
+  width: auto;
+  align-self: center;
+  justify-self: center;
+  margin: 25px;
+}
+.body{
+  display: flex;
+  flex-direction: column;
+}

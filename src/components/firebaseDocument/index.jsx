@@ -34,16 +34,16 @@ const FirebaseDocument = () => {
         )
     }
     return(
-        <>
-        <div>hola mundo firebasense</div>
-        <button ><Link className="nav-link text-white" to="/fbcollection">Volver al listado</Link></button>
+        
+        <div className="body">
+        <button className="backBotton"><Link className="nav-link text-black" to="/fbcollection">Volver al listado</Link></button>
         <h2>{product.nombre}</h2>
         <h2>{product.desc}</h2>
         <img src={product.imagen} alt={product.nombre}></img>
         <h2>{product.precio}</h2>
         <h2>{product.stock}</h2>
         <h2>{product.tipo}</h2>
-        </>
+        </div>
         
     )
 }
