@@ -32,7 +32,7 @@ return acc + currentItem.quantity;
           <li><Link className="dropdown-item" to="/productos/computadoras">Computadoras</Link></li>
           <li><Link className="dropdown-item" to="/productos/ropa">Ropa</Link></li>
           <li><Link className="dropdown-item" to="/productos/aire acondicionado">Aire acondiconado</Link></li>
-          
+          <li><Link className="dropdown-item" to="/fbcollection">Collection</Link></li>
         </ul>
         </div>
         </li>

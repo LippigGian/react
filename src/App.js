@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ContactUs } from "./pages/contactUs/ContactUs";
 import { ShoppingCartProvider } from "./components/shoppingCartContext/ShoppingCartContext";
 
+
 function App() {
   return (
   
@@ -22,6 +23,7 @@ function App() {
     <Route path="/cart" element={ <ShoppingCart></ShoppingCart>}></Route>
     <Route path="/fbdocument" element={<FirebaseDocument></FirebaseDocument>}></Route>
     <Route path="/fbcollection" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
+    <Route path="/fbdocument/:id" element={<FirebaseDocument></FirebaseDocument>}></Route>
 
  {/* <ItemList></ItemList>  */}
 
