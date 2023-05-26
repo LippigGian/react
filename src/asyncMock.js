@@ -41,7 +41,7 @@ const products =
         nombre: "Pantalon 1",
         categoria: "ropa",
         tipo: "pantalon",
-        desc: "Una pantalon que re va con vos",
+        desc: "Un pantalon que re va con vos",
         precio: 1600,
         talle: "L",
         imagen: 'https://marcopololp.com.ar/wp-content/uploads/2021/10/pantalon-drake-verde-old-bridge-marco-polo-1.jpg',
@@ -136,7 +136,7 @@ const products =
         nombre: "Notebook Asus",
         categoria: "computadoras",
         tipo: "computadoras",
-        desc: "NOTEBOOK ASUS VIVOBOOK X1502ZA-EJ192W 15,6 INTEL CORE I7 8GB 512GB SSD WINDOWS 11 | Start_ ",
+        desc: "NOTEBOOK ASUS VIVOBOOK X1502ZA-EJ192W 15,6 INTEL CORE I7 8GB 512GB SSD WINDOWS 11",
         precio: 350000,
         imagen: 'https://images.start.com.ar/X1502ZA-EJ192W.jpg',
         stock:66

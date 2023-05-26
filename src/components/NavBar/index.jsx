@@ -4,6 +4,7 @@ import { CartContext } from "../shoppingCartContext/ShoppingCartContext"
 import carrito from "../CartWidget/Assets/icon-cart.png"
 
 const NavBar = () => {
+  // eslint-disable-next-line
   const [cart, setCart] =useContext(CartContext);
   const quantity = cart.reduce((acc, currentItem ) => {
 return acc + currentItem.quantity;
@@ -31,6 +32,7 @@ return acc + currentItem.quantity;
           <li><Link className="dropdown-item" to="/productos/computadoras">Computadoras</Link></li>
           <li><Link className="dropdown-item" to="/productos/ropa">Ropa</Link></li>
           <li><Link className="dropdown-item" to="/productos/aire acondicionado">Aire acondiconado</Link></li>
+          
         </ul>
         </div>
         </li>

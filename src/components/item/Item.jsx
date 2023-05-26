@@ -26,7 +26,7 @@ const addToCart = () =>
       return currentItems.map((item)=> {
         if(item.id === id)
         {
-          return {...item, quantity: item.quantity +1}
+          return {...item, quantity: item.quantity +1, nombre}
         }
         else
         {
@@ -34,7 +34,7 @@ const addToCart = () =>
         }
       })
     } else {
-      return [...currentItems, {id, quantity:1 , precio}]
+      return [...currentItems, {id, quantity:1 , precio, nombre}]
     }
   })
   console.log(cart)
@@ -79,7 +79,7 @@ const cantidadPorItem = getQuantityById(id);
         {cantidadPorItem === 0 ? <button className="btn btn-primary agregar" onClick={()=>addToCart()} >Agregar al carrito</button>: <button className="btn btn-primary agregar" onClick={()=>addToCart()} >Sumar 1 unidad</button>}
         {cantidadPorItem > 0 && <button className="btn btn-primary agregar" onClick={()=>removeItem(id)} >Eliminar 1 del carrito</button>}
         
-       {cantidadPorItem > 0 && <div><h3>{cantidadPorItem}</h3></div>}
+        {cantidadPorItem > 0 && <div><h3>{cantidadPorItem}</h3></div>}
         {/* <button  id={id} className="btn btn-primary agregar" >Agregar al carrito</button> */}
       </div>
     </div>

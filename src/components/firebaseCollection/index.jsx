@@ -19,7 +19,6 @@ const FirebaseCollecion = () =>
             //al ser collection y no product necesitaré hacer un map.
             setProducts(querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data() })))
         })
-
     },[])
     console.log(products )
     if(!products){
@@ -28,20 +27,23 @@ const FirebaseCollecion = () =>
         )
     }
     return(
-        <>
-        <div>Hola firebaseCollecion</div>
+        <div className="body">
+            <div className="productsContainer"> 
         {products.map((product)=>{
             return(
-                <>
-        <h2>{product.nombre}</h2>
-        <h2>{product.desc}</h2>
-        <img src={product.imagen} alt={product.nombre}></img>
-        <h2>{product.precio}</h2>
-        <h2>{product.stock}</h2>
-        <h2>{product.tipo}</h2>
-        </>)
+        <div className="card">
+            <img className="card-img-top img" src={product.imagen} alt={product.nombre}></img>
+            <div className="card-sody">
+                <h5 className="card-title">{product.nombre}</h5>
+                <h3 className="card-text"> Precio ${product.precio}</h3>
+                <h4>{product.categoria}</h4>
+                {/* <h2>{product.desc}</h2> */}
+                <h2>Stock disponible: {product.stock}</h2>
+            </div>
+        </div>)
         })}
-        </>
+            </div>
+        </div>
     )
 }
 

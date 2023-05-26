@@ -1,69 +1,73 @@
-.card-img, .card-img-bottom, .card-img-top {
-    width: 150px;
-    align-self: center;
-    margin: 10px;
-    border-radius: 5px;
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 150px;
+  align-self: center;
+  margin: 10px;
+  border-radius: 5px;
+}
+.body .productsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+div h1 {
+  text-align: center;
+  margin: 15px;
+}
+.card-img {
+  width: 33%;
 }
 
-.body .productsContainer
-{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-div h1
-{
-    text-align: center;
-    margin: 15px;
-}
-.card-img{
-    width: 33%;
+.card {
+  width: 30%;
+  margin: 25px;
 }
 
-.card 
-{
-width: 30%;
-margin: 25px;
+.agregar {
+  align-self: center;
 }
 
-
-.agregar
-{
-    align-self: center;
+.card-sody {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.producto-detalles-botones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.botonera {
+  display: flex;
+  flex-direction: row;
 }
 
-.card-sody
-{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-.producto-detalles-botones
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.botonera
-{
-    display: flex;
-    flex-direction: row;
+.detail-img {
+  width: 50%;
 }
 
-.detail-img
-{
-    width: 50%;
+.detail {
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.detail
-{
-    margin: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.title {
+  text-align: center;
+}
+html {
+  min-height: 100%;
+  /* position: relative; */
 }
 
-.title{
-    text-align: center;
+.footer {
+  margin-top: auto;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
