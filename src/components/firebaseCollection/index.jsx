@@ -123,7 +123,7 @@ console.log(products)}
             <button onClick={()=>ordenar()}>Ordenar A-Z</button>
             <button onClick={()=>desordenar()}>Ordenar Z-A</button>
             <select name="Ordenar">
-                <option>Por defecto</option>
+                <option onSelect={}>Por defecto</option>
                 <option>Alfabeticamente</option>
                 <option>Menor precio</option>
                 <option>Mayor precio</option>
