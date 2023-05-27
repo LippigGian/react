@@ -5,18 +5,20 @@ import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 import { Link } from "react-router-dom";
 
 // import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 
 //ejemplo de firebase para una collection
 const FirebaseCollecion = () =>
 {
-    const [products, setProducts] = useState();
     const [cart, setCart] =useContext(CartContext);
+    const[products, setProducts] = useState();
 
+    console.log(cart)
     //prueba para la barra de busqueda
     const[tableUsuarios, setTableUsuarios]=useState([]);
     const[busqueda, setBusqueda]=useState("");
+    // const[prueba, setPrueba]=useState()
 
 
     useEffect(()=>{
@@ -26,8 +28,8 @@ const FirebaseCollecion = () =>
             //aqui en setProducts nos llega un array "raro" de leer.
             //al ser collection y no product necesitaré hacer un map.
             setProducts(querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data() })))
-            // setUsuarios(querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data() })))
             setTableUsuarios(querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data() })))
+            // setPrueba(querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data() })))
         }) 
     },[])
 
@@ -39,35 +41,28 @@ const FirebaseCollecion = () =>
             </div>
         )
     }
-    //desestrucutración:
-    const {nombre, id, precio} = products;
-    // products.map((product)=>{
-    //     return(
-    //         console.log(product.nombre)
-    //     )
-    // })
-    // console.log(tableUsuarios)
-    // console.log(products)
-const addToCart = () =>
-{
-    console.log(cart)
-  setCart((currentItems)=>{
-    const isItemsFound = currentItems.find((item)=> item.id === products.id)
-    // console.log("item Id"+item.id)
-    console.log("id"+ products)
+    
+    const addToCart = (nombre, id, precio) =>
+{   setCart((currentItems)=>{
+    const isItemsFound = currentItems.find((item)=> item.id === id)
+
+
     if(isItemsFound)
     {
       return currentItems.map((item)=> {
         if(item.id === id)
         {
+            console.log("entro al primer if")
           return {...item, quantity: item.quantity +1, nombre}
         }
         else
         {
+            console.log("entro al primer else")
           return item;
         }
       })
     } else {
+        console.log("entro al ultimo else")
       return [...currentItems, {id, quantity:1 , precio, nombre}]
     }
   })
@@ -91,7 +86,7 @@ const filtrar = (terminoBusqueda)=>{
 
 // const ordenar =()=>{
 //     console.log("se ordena padre")
-//     setProducts(products.sort((a,b)=>{
+//     setPrueba(products.sort((a,b)=>{
 //         if(a.nombre.toLowerCase() < b.nombre.toLowerCase()){
 //             return -1;
 //         }
@@ -99,8 +94,9 @@ const filtrar = (terminoBusqueda)=>{
 //             return 1;
 //         }
 //         return 0;
-        
 //     }))}
+    
+
     
     return(
         <div className="body">
@@ -123,7 +119,7 @@ const filtrar = (terminoBusqueda)=>{
                 <h4>{product.categoria}</h4>
                 {/* <h2>{product.desc}</h2> */}
                 <h2>Stock disponible: {product.stock}</h2>
-                <button onClick={()=>addToCart()}>Agregar al carrito</button>
+                <button onClick={()=>addToCart(product.nombre, product.id, product.precio)}>Agregar al carrito</button>
                 <Link id={product.id} className="btn btn-secondary agregar" to={`/fbdocument/${product.id}`}>
                 Ver detalle del producto
                 </Link>
