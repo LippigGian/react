@@ -10,7 +10,7 @@ const FirebaseDocument = () => {
     
     const id = useParams().id;
     const [cart, setCart] =useContext(CartContext);
-    console.log(cart)
+
 
     const[product, setProduct] = useState();
     const[msg, setMsg] = useState("Cargando..."); 
@@ -37,16 +37,12 @@ const FirebaseDocument = () => {
             </div>
         )
     }
-    console.log(cart)
+
     
     const addToCart = (nombre, precio, id) =>
 {
   setCart((currentItems)=>{
     const isItemsFound = currentItems.find((item)=> item.id === id)
-    console.log(product.id)
-    console.log(id)
-    // console.log("item Id"+item.id)
-    console.log(id)
     if(isItemsFound)
     {
       return currentItems.map((item)=> {

@@ -14,7 +14,6 @@ const FirebaseCollecion = () =>
     const [cart, setCart] =useContext(CartContext);
     const[products, setProducts] = useState();
 
-    console.log(cart)
     //prueba para la barra de busqueda
     const[tableUsuarios, setTableUsuarios]=useState([]);
     const[busqueda, setBusqueda]=useState("");
@@ -52,17 +51,14 @@ const FirebaseCollecion = () =>
       return currentItems.map((item)=> {
         if(item.id === id)
         {
-            console.log("entro al primer if")
           return {...item, quantity: item.quantity +1, nombre}
         }
         else
         {
-            console.log("entro al primer else")
-          return item;
+           return item;
         }
       })
     } else {
-        console.log("entro al ultimo else")
       return [...currentItems, {id, quantity:1 , precio, nombre}]
     }
   })

@@ -52,7 +52,7 @@ const ShoppingCart = () => {
       <div>
       </div>
       <h3 className="text-center">Precio final: {totalPrice}</h3>
-      <button type="button" class="btn btn-success m-auto" onClick={()=>{setCart([])}}>CheckOut</button>
+      <button type="button" className="btn btn-success m-auto" onClick={()=>{setCart([])}}>CheckOut</button>
       </div>
   );
 };
