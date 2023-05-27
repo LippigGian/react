@@ -63,7 +63,11 @@ const getQuantityById = (id) =>{
   return cart.find((item)=> item.id ===id )?.quantity || 0;
 } 
 const cantidadPorItem = getQuantityById(id);
+
+
   return (
+    <>
+  
     <div className="card">
       <img className="card-img-top img" src={imagen} alt="Card cap"></img>
       <div className="card-sody">
@@ -83,5 +87,6 @@ const cantidadPorItem = getQuantityById(id);
         {/* <button  id={id} className="btn btn-primary agregar" >Agregar al carrito</button> */}
       </div>
     </div>
+    </>
   );
 };

@@ -9,7 +9,7 @@ import { ShoppingCartProvider } from "./components/shoppingCartContext/ShoppingC
 function App() {
   return (
   
-<ShoppingCartProvider>
+<ShoppingCartProvider> 
 <BrowserRouter>
 <NavBar/>
 

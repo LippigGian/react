@@ -4,6 +4,7 @@ import { useState } from "react"
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 import { Link } from "react-router-dom";
 
+
 // import axios from "axios";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,7 +13,7 @@ import { Link } from "react-router-dom";
 const FirebaseCollecion = () =>
 {
     const [cart, setCart] =useContext(CartContext);
-    const[products, setProducts] = useState();
+    const[products, setProducts] = useState([]);
 
     //prueba para la barra de busqueda
     const[tableUsuarios, setTableUsuarios]=useState([]);
@@ -69,7 +70,6 @@ const handleChange= (e)=>{
 }
 
 const filtrar = (terminoBusqueda)=>{
-    
     const resultadoDeBusqueda = tableUsuarios.filter((element)=> {
         if(element.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) || 
         element.categoria.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){
@@ -80,23 +80,54 @@ const filtrar = (terminoBusqueda)=>{
     setProducts(resultadoDeBusqueda)
 }
 
-// const ordenar =()=>{
-//     console.log("se ordena padre")
-//     setPrueba(products.sort((a,b)=>{
-//         if(a.nombre.toLowerCase() < b.nombre.toLowerCase()){
-//             return -1;
-//         }
-//         if(a.nombre.toLowerCase() > b.nombre.toLowerCase()){
-//             return 1;
-//         }
-//         return 0;
-//     }))}
+const ordenar =()=>{
+    // console.log("se ordena padre")
+    products.sort((a,b)=>{
+        if(a.nombre.toLowerCase() < b.nombre.toLowerCase()){
+            return -1;
+        }
+        if(a.nombre.toLowerCase() > b.nombre.toLowerCase()){
+            return 1;
+        }
+        return 0;
+    })
+    setProducts([...products])
     
+console.log(products)}
+
+
+const desordenar =()=>{
+    // console.log("se ordena padre")
+    products.sort((a,b)=>{
+        if(a.nombre.toLowerCase() < b.nombre.toLowerCase()){
+            return 1;
+        }
+        if(a.nombre.toLowerCase() > b.nombre.toLowerCase()){
+            return -1;
+        }
+        return 0;
+    })
+    setProducts([...products])
+    //El asunto con React, y arreglos, es que react trata de buscar que haya cambiado algo en la variable, 
+    //pero tu arreglo generalmente es el mismo, lo que se suele usar en React es el spread 
+    //operator (...), declarando un arreglo nuevo dentro de tu set, por ejemplo
+
+
+    
+console.log(products)}
+  
 
     
     return(
         <div className="body">
-            {/* <button onClick={()=>ordenar()}>Ordenar Array</button> */}
+            <button onClick={()=>ordenar()}>Ordenar A-Z</button>
+            <button onClick={()=>desordenar()}>Ordenar Z-A</button>
+            <select name="Ordenar">
+                <option>Por defecto</option>
+                <option>Alfabeticamente</option>
+                <option>Menor precio</option>
+                <option>Mayor precio</option>
+            </select>
             <div className="container-input">
                 <input 
                 className="form-control input buscar" 
@@ -121,8 +152,8 @@ const filtrar = (terminoBusqueda)=>{
                 </Link>
                 
             </div>
-            
-        </div>)
+        </div>
+        )
         })}
             </div>
         </div>

@@ -33,7 +33,7 @@ export const ItemListContainer = ({greeting}) =>{
             <h1>{greeting}</h1>
             <h2 className="title">{titulo}:</h2>
             
-            <ItemList products={products}  key={products.id}></ItemList>
+            <ItemList products={products} key={products.id}></ItemList>
         </div>
     )
 }
