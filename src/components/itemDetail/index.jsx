@@ -3,8 +3,7 @@ import { ItemCount } from "../itemCount";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 
 const ItemDetail = ({ item }) => {
-  const { nombre, precio,  id  } =
-    item;
+  const { nombre, precio, id } = item;
 
   const [cantidad, setCantidad] = useState(0);
   const [cart, setCart] = useContext(CartContext);

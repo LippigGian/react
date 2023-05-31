@@ -23,6 +23,7 @@ function App() {
     <Route path="/cart" element={ <ShoppingCart></ShoppingCart>}></Route>
     <Route path="/fbdocument" element={<FirebaseDocument></FirebaseDocument>}></Route>
     <Route path="/fbcollection" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
+    <Route path="/fbcollection/:category" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
     <Route path="/fbdocument/:id" element={<FirebaseDocument></FirebaseDocument>}></Route>
 
  {/* <ItemList></ItemList>  */}
