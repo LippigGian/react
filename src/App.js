@@ -1,5 +1,5 @@
 import { ItemListContainer } from "./components/ItemsListContainer/ItemsListContainer";
-import {FirebaseCollecion, FirebaseDocument, Footer, ItemCount, ItemDetailContainer, NavBar, ShoppingCart} from "./components"
+import {FirebaseCollecion, FirebaseDocument, Footer, Checkout, ItemCount, ItemDetailContainer, NavBar, ShoppingCart, ModalExample} from "./components"
 import "./style.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ContactUs } from "./pages/contactUs/ContactUs";
@@ -25,6 +25,8 @@ function App() {
     <Route path="/fbcollection" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
     <Route path="/fbcollection/:category" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
     <Route path="/fbdocument/:id" element={<FirebaseDocument></FirebaseDocument>}></Route>
+    <Route path="/form" element={<Checkout></Checkout>}></Route>
+    <Route path="/modal" element={<ModalExample></ModalExample>}></Route>
 
  {/* <ItemList></ItemList>  */}
 

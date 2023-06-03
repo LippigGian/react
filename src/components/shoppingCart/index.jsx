@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
+import { Checkout } from "../checkout";
 
 const ShoppingCart = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -59,15 +60,7 @@ const ShoppingCart = () => {
       </table>
       <div></div>
       <h3 className="text-center">Precio final: {totalPrice}</h3>
-      <button
-        type="button"
-        className="btn btn-success m-auto"
-        onClick={() => {
-          setCart([]);
-        }}
-      >
-        CheckOut
-      </button>
+      <Checkout></Checkout>
     </div>
   );
 };
