@@ -14,19 +14,17 @@ function App() {
 <NavBar/>
 
 <Routes>
-    <Route path="/" element={<ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>}></Route>
+    <Route path="/" element={<ItemListContainer ></ItemListContainer>}></Route>
     <Route path="/productos" element={<ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>}></Route>
-    <Route path="/productos/:category" element={<ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>}></Route>
-    <Route path="/count" element={ <ItemCount></ItemCount>}></Route>
+    <Route path="/productos/:categoria" element={<ItemListContainer greeting={'¡Hola! Bienvenido a la tienda.'}></ItemListContainer>}></Route>
     <Route path="/item/:id"  element={<ItemDetailContainer></ItemDetailContainer>}></Route>
     <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
     <Route path="/cart" element={ <ShoppingCart></ShoppingCart>}></Route>
     <Route path="/fbdocument" element={<FirebaseDocument></FirebaseDocument>}></Route>
     <Route path="/fbcollection" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
-    <Route path="/fbcollection/:category" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
-    <Route path="/fbdocument/:id" element={<FirebaseDocument></FirebaseDocument>}></Route>
+    <Route path="/categorias/:categoria" element={<FirebaseDocument></FirebaseDocument>}></Route>
+    <Route path="/itemdetail/:id" element={<ItemDetailContainer></ItemDetailContainer>}></Route>
     <Route path="/form" element={<Checkout></Checkout>}></Route>
-    <Route path="/modal" element={<ModalExample></ModalExample>}></Route>
 
  {/* <ItemList></ItemList>  */}
 

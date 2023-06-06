@@ -24,7 +24,6 @@ const [cart, setCart] = useContext(CartContext);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-
     // Aquí puedes hacer algo con los datos del formulario, como enviarlos a un servidor
     console.log('Email:', email);
     console.log('Dirección:', direccion);
@@ -66,7 +65,7 @@ const [cart, setCart] = useContext(CartContext);
      <>
 
      <Button variant="success" className='m-auto' onClick={handleShow}>
-        Checkout
+        Finalizar compra
       </Button>
 
       <Modal show={showModal} onHide={handleClose}>

@@ -11,43 +11,11 @@ const Item = ({
   stock,
   id,
   imagen,
-  categoria,
+  categoria, removeItem, addToCart
 }) => {
   const [cart, setCart] = useContext(CartContext);
 
-  const addToCart = () => {
-    setCart((currentItems) => {
-      const isItemsFound = currentItems.find((item) => item.id === id);
-      if (isItemsFound) {
-        return currentItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1, nombre };
-          } else {
-            return item;
-          }
-        });
-      } else {
-        return [...currentItems, { id, quantity: 1, precio, nombre }];
-      }
-    });
-    console.log(cart);
-  };
 
-  const removeItem = (id) => {
-    setCart((currentItems) => {
-      if (currentItems.find((item) => item.id === id)?.quantity === 1) {
-        return currentItems.filter((item) => item.id !== id);
-      } else {
-        return currentItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
-        });
-      }
-    });
-  };
   const getQuantityById = (id) => {
     return cart.find((item) => item.id === id)?.quantity || 0;
   };
@@ -59,29 +27,26 @@ const Item = ({
         <img className="card-img-top img" src={imagen} alt="Card cap"></img>
         <div className="card-sody">
           <h5 className="card-title">{nombre}</h5>
-          {/* <p className="card-text">Descripcion: {desc}.</p> */}
-          {/* {talle && <h4 className="card-subtitle"> Talle: {talle}</h4>} */}
           <h3 className="card-text"> Precio ${precio}</h3>
           <h4>{categoria}</h4>
           <h4>Stock disponible: {stock}</h4>
           <Link
-            id={id}
-            className="btn btn-secondary agregar"
-            to={`/item/${id}`}
-          >
-            Ver detalle del producto
-          </Link>
+                  className="btn btn-secondary agregar"
+                  to={`/itemdetail/${id}`}
+                >
+                  Ver detalle del producto
+                </Link>
           {cantidadPorItem === 0 ? (
             <button
               className="btn btn-primary agregar"
-              onClick={() => addToCart()}
+              onClick={() => addToCart(id, nombre, precio)}
             >
               Agregar al carrito
             </button>
           ) : (
             <button
               className="btn btn-primary agregar"
-              onClick={() => addToCart()}
+              onClick={() => addToCart(id, nombre, precio)}
             >
               Sumar 1 unidad
             </button>

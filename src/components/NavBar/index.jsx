@@ -46,32 +46,32 @@ const NavBar = () => {
               <div className="products">
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="/fbcollection/celulares">
+                    <Link className="dropdown-item" to="/categorias/celulares">
                       Celulares
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/fbcollection/televisores">
+                    <Link className="dropdown-item" to="/categorias/televisores">
                       Televisores
                     </Link>
                   </li>
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/fbcollection/computadoras"
+                      to="/categorias/computadoras"
                     >
                       Computadoras
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/fbcollection/ropa">
+                    <Link className="dropdown-item" to="/categorias/ropa">
                       Ropa
                     </Link>
                   </li>
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/fbcollection/aire acondicionado"
+                      to="/categorias/aire acondicionado"
                     >
                       Aire acondiconado
                     </Link>

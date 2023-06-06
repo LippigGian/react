@@ -49,14 +49,9 @@ const FirebaseCollecion = () => {
       
     }
     );
+
+
     
-    // console.log("fuera de if");
-    // /*filtrar por categoria*/
-    // if (products && category) {
-    //   console.log("dentro de if");
-    //   setProducts(products.filter((prod) => prod.categoria === category));
-    //   console.log(products);
-    // }
   }, [category]);
 
   if (!products) {

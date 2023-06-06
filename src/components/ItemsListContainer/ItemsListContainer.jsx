@@ -1,33 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../../asyncMock";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { ItemList } from "../itemList/ItemList";
-import { useParams } from "react-router-dom";
 
-export const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([]);
-  const [titulo, setTitulo] = useState("Productos");
-  const category = useParams().category;
+export const ItemListContainer = () => {
+  // const [cart, setCart] = useContext(CartContext);
+  const [products, setProducts] = useState();
+
 
   useEffect(() => {
-    getProducts()
-      .then((res) => {
-        if (category) {
-          setProducts(res.filter((prod) => prod.categoria === category));
-          setTitulo(category);
-        } else {
-          setProducts(res);
-          setTitulo("Productos");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [category]);
+    const db = getFirestore();
+    const collectionRef = collection(db, "items");
+    getDocs(collectionRef).then((querySnapshot) => {
+      //aqui en setProducts nos llega un array "raro" de leer.
+      //al ser collection y no product necesitaré hacer un map.
+      setProducts(
+        querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+      ); 
+    }
+    );
+
+  }, []);
+
+  if (!products) {
+    return (
+     
+      <div className="containerLoader">
+        <h2>Cargando...</h2>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+
 
   return (
     <div className="body">
-      <h1>{greeting}</h1>
-      <h2 className="title">{titulo}:</h2>
+
 
       <ItemList products={products} key={products.id}></ItemList>
     </div>

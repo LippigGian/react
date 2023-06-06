@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 import { Checkout } from "../checkout";
+import Swal from 'sweetalert2';
+
+
+
 
 const ShoppingCart = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -28,6 +32,25 @@ const ShoppingCart = () => {
       }
     });
   };
+
+  const handleButtonClick = () => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setCart([])
+      } else {
+        // Código a ejecutar si se cancela la acción
+        console.log('La acción se ha cancelado.');
+      }
+    });
+  };
+
 
   return (
     <div className="body-cart d-flex flex-column">
@@ -60,6 +83,8 @@ const ShoppingCart = () => {
       </table>
       <div></div>
       <h3 className="text-center">Precio final: {totalPrice}</h3>
+      <button className="btn btn-dark m-auto" onClick={handleButtonClick}>Vaciar carrito de compras</button>
+
       <Checkout></Checkout>
     </div>
   );
