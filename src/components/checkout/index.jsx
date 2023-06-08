@@ -9,8 +9,6 @@ const [cart, setCart] = useContext(CartContext);
   const [direccion, setDireccion] = useState('');
   const [nombre, setNombre] = useState('');
   const [showModal, setShowModal] = useState(false);
-
-
   const [telefono, setTelefono] = useState('');
 
   const handleClose = () => {
@@ -129,7 +127,6 @@ const [cart, setCart] = useContext(CartContext);
         </Modal.Body>
         <Modal.Footer>
         <button className='btn btn-dark' onClick={handleClose}>Cerrar</button>
-          
         </Modal.Footer>
       </Modal>
 

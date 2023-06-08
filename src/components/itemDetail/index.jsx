@@ -1,9 +1,15 @@
 
+import { Link } from "react-router-dom";
 const ItemDetail = ({ product, addToCart, sumarCarrito, restarCarrito, cantidad, id }) => {
 
 
   return (
     <div className="detail">
+  <button className="backBotton">
+        <Link className="nav-link text-black" to="/">
+          Volver al listado
+        </Link>
+      </button>
       
       {/* <img className="detail-img" src={item.imagen} alt="Card cap"></img> */}
       <div className="card-sody">
