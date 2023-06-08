@@ -85,7 +85,7 @@ const ShoppingCart = () => {
       <h3 className="text-center">Precio final: {totalPrice}</h3>
       <button className="btn btn-dark m-auto" onClick={handleButtonClick}>Vaciar carrito de compras</button>
 
-      <Checkout></Checkout>
+      <Checkout totalPrice={totalPrice}></Checkout>
     </div>
   );
 };

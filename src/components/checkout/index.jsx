@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { CartContext } from '../shoppingCartContext/ShoppingCartContext';
+import { collection, addDoc, getFirestore } from 'firebase/firestore';
 
-const Checkout = () => {
+
+const Checkout = ({totalPrice}) => {
 const [cart, setCart] = useContext(CartContext);
   const [email, setEmail] = useState('');
   const [direccion, setDireccion] = useState('');
@@ -34,10 +36,35 @@ const [cart, setCart] = useContext(CartContext);
        setNombre('');
        setTelefono('');
 
+       //Enviar datos a firestore
+       const order = { comprador: {nombre: {nombre}, email:{email}, direccion:{direccion}, telefono: {telefono}},
+                        productos: cart,
+                      total: totalPrice}
+       writeToFirestore(order);
+       
        //Vaciar carrito, aunque faltaria validar antes de eliminar
         setCart([]);
       
   };
+
+  //Prueba para escribir en firestore
+  const writeToFirestore = async (order) => {
+    try {
+      const db = getFirestore();
+      const collectionRef = collection(db, 'buyers');
+      //destructuro el id y ya lo guardo directamente
+      const {id} = await addDoc(collectionRef, order);
+      
+      console.log(id)
+      console.log('Documento agregado correctamente');
+      return id;
+
+      //o también puedo enviarlo como respuesta.id
+    } catch (error) {
+      console.error('Error al agregar el documento:', error);
+    }
+  };
+  
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
