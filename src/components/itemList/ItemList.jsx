@@ -3,9 +3,8 @@ import { Item } from "../item/Item";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 
 export const ItemList = ({ products }) => {
-  
+    // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
-
 
   const addToCart = (id, nombre, precio) => {
     setCart((currentItems) => {
@@ -40,8 +39,6 @@ export const ItemList = ({ products }) => {
     });
   };
 
-
-
   if (!products) {
     return (
       <div className="containerLoader">
@@ -54,7 +51,14 @@ export const ItemList = ({ products }) => {
     <>
       <div className="productsContainer">
         {products.map((product) => {
-          return <Item key={product.id} {...product} removeItem={removeItem} addToCart={addToCart}></Item>;
+          return (
+            <Item
+              key={product.id}
+              {...product}
+              removeItem={removeItem}
+              addToCart={addToCart}
+            ></Item>
+          );
         })}
       </div>
     </>

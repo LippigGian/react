@@ -1,2 +1,2 @@
-import {contactUs} from"../pages/contactUs"
-import {Carrito} from "../pages/carrito"
+export {ContactUs} from"../pages/contactUs"
+export {Cart} from"../pages/cart"

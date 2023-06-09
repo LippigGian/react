@@ -4,17 +4,16 @@ import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 
 const Item = ({
   nombre,
-  tipo,
-  desc,
   precio,
-  talle,
   stock,
   id,
   imagen,
-  categoria, removeItem, addToCart
+  categoria,
+  removeItem,
+  addToCart,
 }) => {
+    // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
-
 
   const getQuantityById = (id) => {
     return cart.find((item) => item.id === id)?.quantity || 0;
@@ -30,12 +29,9 @@ const Item = ({
           <h3 className="card-text"> Precio ${precio}</h3>
           <h4>{categoria}</h4>
           <h4>Stock disponible: {stock}</h4>
-          <Link
-                  className="btn btn-secondary agregar"
-                  to={`/itemdetail/${id}`}
-                >
-                  Ver detalle del producto
-                </Link>
+          <Link className="btn btn-secondary agregar" to={`/itemdetail/${id}`}>
+            Ver detalle del producto
+          </Link>
           {cantidadPorItem === 0 ? (
             <button
               className="btn btn-primary agregar"
@@ -62,14 +58,13 @@ const Item = ({
 
           {cantidadPorItem > 0 && (
             <div>
-              <h3>{cantidadPorItem}</h3>
+              <h3>Cantidad: {cantidadPorItem}</h3>
             </div>
           )}
-          {/* <button  id={id} className="btn btn-primary agregar" >Agregar al carrito</button> */}
         </div>
       </div>
     </>
   );
 };
 
-export {Item}
+export { Item };

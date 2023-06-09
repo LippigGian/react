@@ -1,29 +1,36 @@
-import { getFirestore, docs, getDocs, collection, query, where } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
-import {ItemListCategories} from "../ItemListCategories"
+import { ItemListCategories } from "../ItemListCategories";
 
-//ejemplo para acceder a UN documento, esto se utilizaria en realidad para un Detail
 const ItemListCategoriesContainer = () => {
   const categoria = useParams().categoria;
+    // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
 
   const [product, setProduct] = useState();
 
-
   useEffect(() => {
     const db = getFirestore();
     const collectionRef = collection(db, "items");
-    const filteredCollectionRef = query(collectionRef, where("categoria", "in", [`${categoria}`]));
+    const filteredCollectionRef = query(
+      collectionRef,
+      where("categoria", "in", [`${categoria}`])
+    );
     getDocs(filteredCollectionRef).then((querySnapshot) => {
       setProduct(
         querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
       );
     });
   }, [categoria]);
-
 
   if (!product) {
     return (
@@ -33,10 +40,10 @@ const ItemListCategoriesContainer = () => {
       </div>
     );
   }
-  
-  const mayuscula =(str)=> {
+
+  const mayuscula = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+  };
   const capitalizedString = mayuscula(categoria);
 
   const removeItem = (id) => {
@@ -72,21 +79,24 @@ const ItemListCategoriesContainer = () => {
   };
 
   return (
-  
     <div className="body">
-    <h1>Bienvenido a la categoria de: {capitalizedString}</h1>
-    
-    <div className="productsContainer">
+      <h1>Bienvenido a la categoria de: {capitalizedString}</h1>
+
+      <div className="productsContainer">
         {product.map((product) => {
           return (
             <>
-            <ItemListCategories  key={product.id} {...product} removeItem={removeItem} addToCart={addToCart}></ItemListCategories>
+              <ItemListCategories
+                key={product.id}
+                {...product}
+                removeItem={removeItem}
+                addToCart={addToCart}
+              ></ItemListCategories>
             </>
-        )})}
-
-        </div>
-        </div>
-  
+          );
+        })}
+      </div>
+    </div>
   );
 };
 export { ItemListCategoriesContainer };

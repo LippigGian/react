@@ -3,9 +3,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { ItemList } from "../itemList/ItemList";
 
 export const ItemListContainer = () => {
-  // const [cart, setCart] = useContext(CartContext);
   const [products, setProducts] = useState();
-
 
   useEffect(() => {
     const db = getFirestore();
@@ -15,15 +13,12 @@ export const ItemListContainer = () => {
       //al ser collection y no product necesitaré hacer un map.
       setProducts(
         querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-      ); 
-    }
-    );
-
+      );
+    });
   }, []);
 
   if (!products) {
     return (
-     
       <div className="containerLoader">
         <h2>Cargando...</h2>
         <div className="spinner"></div>
@@ -31,11 +26,8 @@ export const ItemListContainer = () => {
     );
   }
 
-
   return (
     <div className="body">
-
-
       <ItemList products={products} key={products.id}></ItemList>
     </div>
   );

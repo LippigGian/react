@@ -1,14 +1,10 @@
 import { useContext } from "react";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 import { Checkout } from "../checkout";
-import Swal from 'sweetalert2';
-
-
-
+import Swal from "sweetalert2";
 
 const ShoppingCart = () => {
   const [cart, setCart] = useContext(CartContext);
-  // console.log(cart)
   const quantity = cart.reduce((acc, currentItem) => {
     return acc + currentItem.quantity;
   }, 0);
@@ -17,7 +13,7 @@ const ShoppingCart = () => {
     return acc + currentItem.precio * currentItem.quantity;
   }, 0);
 
- const removeItem = (id) => {
+  const removeItem = (id) => {
     setCart((currentItems) => {
       if (currentItems.find((item) => item.id === id)?.quantity === 1) {
         return currentItems.filter((item) => item.id !== id);
@@ -35,22 +31,20 @@ const ShoppingCart = () => {
 
   const handleButtonClick = () => {
     Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'Esta acción no se puede deshacer',
-      icon: 'warning',
+      title: "¿Estás seguro?",
+      text: "Esta acción no se puede deshacer",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Sí',
-      cancelButtonText: 'No',
+      confirmButtonText: "Sí",
+      cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
-        setCart([])
+        setCart([]);
       } else {
         // Código a ejecutar si se cancela la acción
-        console.log('La acción se ha cancelado.');
       }
     });
   };
-
 
   return (
     <div className="body-cart d-flex flex-column">
@@ -69,12 +63,19 @@ const ShoppingCart = () => {
           {cart.map((productos) => {
             return (
               <>
-                <tr>
+                <tr key={productos.id}>
                   <td>{productos.nombre}</td>
                   <td>{productos.quantity}</td>
                   <td>{productos.precio}</td>
                   <td>{productos.precio * productos.quantity}</td>
-                  <td><button  className="btn btn-danger" onClick={() => removeItem(productos.id)}>Eliminar 1 del carrito</button></td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => removeItem(productos.id)}
+                    >
+                      Eliminar 1 del carrito
+                    </button>
+                  </td>
                 </tr>
               </>
             );
@@ -83,7 +84,9 @@ const ShoppingCart = () => {
       </table>
       <div></div>
       <h3 className="text-center">Precio final: {totalPrice}</h3>
-      <button className="btn btn-dark m-auto" onClick={handleButtonClick}>Vaciar carrito de compras</button>
+      <button className="btn btn-dark m-auto" onClick={handleButtonClick}>
+        Vaciar carrito de compras
+      </button>
 
       <Checkout totalPrice={totalPrice}></Checkout>
     </div>

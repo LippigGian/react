@@ -3,9 +3,8 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
-import { ItemDetail} from "../itemDetail"
+import { ItemDetail } from "../itemDetail";
 
-//ejemplo para acceder a UN documento, esto se utilizaria en realidad para un Detail
 const ItemDetailContainer = () => {
   const id = useParams().id;
   const [cart, setCart] = useContext(CartContext);
@@ -13,6 +12,10 @@ const ItemDetailContainer = () => {
 
   const [product, setProduct] = useState();
   const [msg, setMsg] = useState("Cargando...");
+  const getQuantityById = (id) => {
+    return cart.find((item) => item.id === id)?.quantity || 0;
+  };
+  const cantidadPorItem = getQuantityById(id);
 
   useEffect(() => {
     const db = getFirestore();
@@ -24,8 +27,8 @@ const ItemDetailContainer = () => {
         setMsg("No se encontraron productos ");
       }
     });
-  }, []);
-
+    //no estoy seguro si debe actualizarse con el cambio del id
+  }, [id]);
 
   if (!product) {
     return (
@@ -35,7 +38,7 @@ const ItemDetailContainer = () => {
       </div>
     );
   }
-  
+
   const sumarCarrito = () => {
     product.stock > cantidad && setCantidad(cantidad + 1);
   };
@@ -62,25 +65,15 @@ const ItemDetailContainer = () => {
   };
 
   return (
-    <>
-    {/* <div className="body">
-      <button className="backBotton">
-        <Link className="nav-link text-black" to="/">
-          Volver al listado
-        </Link>
-      </button>
-      <h2>{product.nombre}</h2>
-      <h2>{product.desc}</h2>
-      <button onClick={() => addToCart(product.nombre, product.precio, id)}>
-        Agregar al carrito
-      </button>
-      <img src={product.imagen} alt={product.nombre}></img> 
-      <h2>{product.precio}</h2>
-      <h2>{product.stock}</h2>
-      <h2>{product.tipo}</h2>
-    </div> */}
-    <ItemDetail id={id} product={product} addToCart={addToCart} sumarCarrito={sumarCarrito} restarCarrito={restarCarrito} cantidad={cantidad}></ItemDetail>
-    </>
+    <ItemDetail
+      id={id}
+      product={product}
+      addToCart={addToCart}
+      sumarCarrito={sumarCarrito}
+      restarCarrito={restarCarrito}
+      cantidad={cantidad}
+      cantidadPorItem={cantidadPorItem}
+    ></ItemDetail>
   );
 };
 export { ItemDetailContainer };
