@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { CartContext } from '../shoppingCartContext/ShoppingCartContext';
-import { collection, addDoc, getFirestore } from 'firebase/firestore';
+import {writeToFirestore} from "../createDocument/createDocument"
 
 const Checkout = ({totalPrice}) => {
 const [cart, setCart] = useContext(CartContext);
@@ -42,11 +42,12 @@ const [cart, setCart] = useContext(CartContext);
        const order = { comprador: {nombre: {nombre}, email:{email}, direccion:{direccion}, telefono: {telefono}},
                         productos: cart,
                       total: totalPrice}
-       writeToFirestore(order).then(()=>{
-         //Vaciar carrito, aunque faltaria validar antes de eliminar
+      //  writeToFirestore(order).then(()=>{
+      //    //Vaciar carrito, aunque faltaria validar antes de eliminar
        
-        setCart([]);
-       });
+      //   setCart([]);
+      //  });
+      escribir(order)
   
       
         
@@ -54,25 +55,46 @@ const [cart, setCart] = useContext(CartContext);
       
   };
 
-  //Prueba para escribir en firestore
-  const writeToFirestore = async (order) => {
-    try {
-      const db = getFirestore();
-      const collectionRef = collection(db, 'buyers');
-      //destructuro el id y ya lo guardo directamente
-      const {id} = await addDoc(collectionRef, order)
-      console.log('Documento agregado correctamente');
-      setId(id)
-      console.log(id)
-     
-     
-      // return id;
 
-      //o también puedo enviarlo como respuesta.id
-    } catch (error) {
-      console.error('Error al agregar el documento:', error);
-    }
-  };
+
+  //Prueba para escribir en firestore
+const escribir = async (order)=>{
+  const response = await writeToFirestore(order)
+
+  if(response.success)
+  {
+    setCart([]);
+    setId(response.id);
+  }
+  else
+  {
+    console.log("no se guardo correctamente en la base de datos.")
+    
+    
+  }
+
+
+}
+
+
+  // const writeToFirestore = async (order) => {
+  //   const db = getFirestore();
+  //   const collectionRef = collection(db, 'buyers');
+  //   try {   
+  //     //destructuro el id y ya lo guardo directamente
+  //     const {id} = await addDoc(collectionRef, order)
+  //     console.log('Documento agregado correctamente');
+  //     setId(id)
+  //     console.log(id)
+     
+     
+  //     // return id;
+
+  //     //o también puedo enviarlo como respuesta.id
+  //   } catch (error) {
+  //     console.error('Error al agregar el documento:', error);
+  //   }
+  // };
 
 
   const handleEmailChange = (e) => {
