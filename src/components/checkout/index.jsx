@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { CartContext } from '../shoppingCartContext/ShoppingCartContext';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
-
+import Swal from 'sweetalert2';
 
 const Checkout = ({totalPrice}) => {
 const [cart, setCart] = useContext(CartContext);
@@ -11,16 +11,27 @@ const [cart, setCart] = useContext(CartContext);
   const [direccion, setDireccion] = useState('');
   const [nombre, setNombre] = useState('');
   const [showModal, setShowModal] = useState(false);
+  // const [showModal2, setShowModal2] = useState(false);
   const [telefono, setTelefono] = useState('');
+  const [id, setId] = useState(undefined)
 
   const handleClose = () => {
     setShowModal(false);
+    setId(undefined)
   };
 
   const handleShow = () => {
     setShowModal(true);
   };
 
+  
+  const handleClose2 = () => {
+    setShowModal(false);
+  };
+
+  const handleShow2 = () => {
+    setShowModal(true);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -41,9 +52,10 @@ const [cart, setCart] = useContext(CartContext);
                         productos: cart,
                       total: totalPrice}
        writeToFirestore(order);
-       
+  
        //Vaciar carrito, aunque faltaria validar antes de eliminar
         setCart([]);
+      
       
   };
 
@@ -55,16 +67,16 @@ const [cart, setCart] = useContext(CartContext);
       //destructuro el id y ya lo guardo directamente
       const {id} = await addDoc(collectionRef, order);
       
-      console.log(id)
       console.log('Documento agregado correctamente');
-      return id;
+      setId(id)
+      // return id;
 
       //o también puedo enviarlo como respuesta.id
     } catch (error) {
       console.error('Error al agregar el documento:', error);
     }
   };
-  
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -86,12 +98,34 @@ const [cart, setCart] = useContext(CartContext);
 
   };
 
+  const handleButtonClick = () => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setCart([])
+      } else {
+        // Código a ejecutar si se cancela la acción
+        console.log('La acción se ha cancelado.');
+      }
+    });
+  };
   return (
      <>
 
      <Button variant="success" className='m-auto' onClick={handleShow}>
         Finalizar compra
       </Button>
+      {/* <Modal show={showModal2} onHide={handleClose2}>
+        <Modal.Header closeButton>
+
+        </Modal.Header>
+      </Modal> */}
 
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -147,12 +181,15 @@ const [cart, setCart] = useContext(CartContext);
           required
         />
       </div>
-
-      <button type="submit" className="btn btn-primary">Enviar</button>
       
+      <button type="submit" className="btn btn-primary">Enviar</button>
     </form>
         </Modal.Body>
+        
         <Modal.Footer>
+        {id && <><h3>¡Su orden de compra ha sido creada con exito!</h3>
+                <h2>Su numero de orden es: {id}</h2></>}
+         
         <button className='btn btn-dark' onClick={handleClose}>Cerrar</button>
         </Modal.Footer>
       </Modal>
