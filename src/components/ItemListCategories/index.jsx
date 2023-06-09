@@ -62,7 +62,6 @@ const [cart, setCart] = useContext(CartContext);
       <h3>{cantidadPorItem}</h3>
     </div>
   )}
-  {/* <button  id={id} className="btn btn-primary agregar" >Agregar al carrito</button> */}
 </div>
 </div>
 
