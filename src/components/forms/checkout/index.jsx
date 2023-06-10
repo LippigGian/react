@@ -6,7 +6,7 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
   // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
   const [email, setEmail] = useState("");
-  const [email2, setEmail2] = useState('');
+  const [email2, setEmail2] = useState("");
   const [direccion, setDireccion] = useState("");
   const [nombre, setNombre] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -83,7 +83,6 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
-
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
                 Correo electrónico
@@ -107,7 +106,11 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
                 onChange={handleEmail2Change}
                 required
               />
-              {matchError && <p style={{ color: "red" }}>Los correos electrónicos no coinciden.</p>}
+              {matchError && (
+                <p style={{ color: "red" }}>
+                  Los correos electrónicos no coinciden.
+                </p>
+              )}
             </div>
 
             <div className="mb-3">
@@ -164,7 +167,7 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
           </button>
         </Modal.Footer>
       </Modal>
-      </div>
+    </div>
   );
 };
 

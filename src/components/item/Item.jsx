@@ -12,7 +12,7 @@ const Item = ({
   removeItem,
   addToCart,
 }) => {
-    // eslint-disable-next-line
+  // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
 
   const getQuantityById = (id) => {
@@ -55,7 +55,6 @@ const Item = ({
               Eliminar 1 unidad
             </button>
           )}
-
           {cantidadPorItem > 0 && (
             <div>
               <h3>Cantidad: {cantidadPorItem}</h3>

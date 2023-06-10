@@ -3,7 +3,7 @@ import { Item } from "../item/Item";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 
 export const ItemList = ({ products }) => {
-    // eslint-disable-next-line
+  // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
 
   const addToCart = (id, nombre, precio) => {

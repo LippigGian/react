@@ -48,7 +48,6 @@ const ShoppingCart = () => {
 
   return (
     <div className="body-cart d-flex flex-column">
-    
       <table className="table" border="1">
         <thead>
           <tr>
@@ -62,7 +61,6 @@ const ShoppingCart = () => {
         <tbody>
           {cart.map((productos) => {
             return (
-
               <tr key={productos.id}>
                 <td>{productos.nombre}</td>
                 <td>{productos.quantity}</td>
@@ -77,15 +75,18 @@ const ShoppingCart = () => {
                   </button>
                 </td>
               </tr>
-
             );
           })}
         </tbody>
       </table>
       <div></div>
       <div className="d-flex justify-content-evenly">
-      <h3 className="text-center"><strong>Precio final:</strong> ${totalPrice}</h3>  
-      <h3 className="text-center"><strong>Items en el carrito:</strong> {quantity}</h3>
+        <h3 className="text-center">
+          <strong>Precio final:</strong> ${totalPrice}
+        </h3>
+        <h3 className="text-center">
+          <strong>Items en el carrito:</strong> {quantity}
+        </h3>
       </div>
       <button className="btn btn-danger m-auto" onClick={handleButtonClick}>
         Vaciar carrito

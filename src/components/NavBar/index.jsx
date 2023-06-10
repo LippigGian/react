@@ -51,7 +51,10 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/categorias/televisores">
+                    <Link
+                      className="dropdown-item"
+                      to="/categorias/televisores"
+                    >
                       Televisores
                     </Link>
                   </li>

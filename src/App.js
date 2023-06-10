@@ -1,5 +1,5 @@
 import { ItemListContainer } from "./components/ItemsListContainer/ItemsListContainer";
-import {FirebaseCollecion, Footer, Checkout, ItemDetailContainer, NavBar} from "./components"
+import {Footer, Checkout, ItemDetailContainer, NavBar} from "./components"
 import "./style.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ShoppingCartProvider } from "./components/shoppingCartContext/ShoppingCartContext";
@@ -18,7 +18,6 @@ function App() {
     <Route path="/" element={<ItemListContainer ></ItemListContainer>}></Route>
     <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
     <Route path="/cart" element={ <Cart></Cart>}></Route>
-    <Route path="/fbcollection" element={<FirebaseCollecion></FirebaseCollecion>}></Route>
     <Route path="/categorias/:categoria" element={<ItemListCategoriesContainer></ItemListCategoriesContainer>}></Route>
     <Route path="/itemdetail/:id" element={<ItemDetailContainer></ItemDetailContainer>}></Route>
     <Route path="/form" element={<Checkout></Checkout>}></Route>

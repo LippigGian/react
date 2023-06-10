@@ -11,7 +11,7 @@ const ItemListCategories = ({
   removeItem,
   addToCart,
 }) => {
-    // eslint-disable-next-line
+  // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
 
   //funcion para el contador que muestra cuantos productos tenemos en el carrito debajo del mismo

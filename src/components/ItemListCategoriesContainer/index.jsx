@@ -13,7 +13,7 @@ import { ItemListCategories } from "../ItemListCategories";
 
 const ItemListCategoriesContainer = () => {
   const categoria = useParams().categoria;
-    // eslint-disable-next-line
+  // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
 
   const [product, setProduct] = useState();
@@ -27,7 +27,7 @@ const ItemListCategoriesContainer = () => {
     );
     getDocs(filteredCollectionRef).then((querySnapshot) => {
       setProduct(
-        querySnapshot.docs.map((doc) => ({  id: doc.id, ...doc.data() }))
+        querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
       );
     });
   }, [categoria]);
@@ -85,14 +85,12 @@ const ItemListCategoriesContainer = () => {
       <div className="productsContainer">
         {product.map((product) => {
           return (
-          
-              <ItemListCategories
-                key={product.id}
-                {...product}
-                removeItem={removeItem}
-                addToCart={addToCart}
-              ></ItemListCategories>
-            
+            <ItemListCategories
+              key={product.id}
+              {...product}
+              removeItem={removeItem}
+              addToCart={addToCart}
+            ></ItemListCategories>
           );
         })}
       </div>
