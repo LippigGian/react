@@ -23,7 +23,7 @@ const Item = ({
   return (
     <>
       <div className="card">
-        <img className="card-img-top img" src={imagen} alt="Card cap"></img>
+        <img className="card-img-top img" src={imagen} alt={nombre}></img>
         <div className="card-sody">
           <h5 className="card-title">{nombre}</h5>
           <h3 className="card-text"> Precio ${precio}</h3>
@@ -52,7 +52,7 @@ const Item = ({
               className="btn btn-primary agregar"
               onClick={() => removeItem(id)}
             >
-              Eliminar 1 del carrito
+              Eliminar 1 unidad
             </button>
           )}
 

@@ -1,17 +1,16 @@
 import { useContext, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { CartContext } from "../../shoppingCartContext/ShoppingCartContext";
-import {EmailForm} from"../email"
 
 const CheckOutForm = ({ totalPrice, enviarCompra }) => {
   // eslint-disable-next-line
   const [cart, setCart] = useContext(CartContext);
   const [email, setEmail] = useState("");
+  const [email2, setEmail2] = useState('');
   const [direccion, setDireccion] = useState("");
   const [nombre, setNombre] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [telefono, setTelefono] = useState("");
-  const [email2, setEmail2] = useState('');
   const [matchError, setMatchError] = useState(false);
 
   const handleClose = () => {
@@ -30,7 +29,6 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
   const handleEmail2Change = (event) => {
     setEmail2(event.target.value);
     setMatchError(false);
-    // setMatchError(false);
   };
 
   const handleDireccionChange = (e) => {
@@ -51,23 +49,23 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-// Lógica para verificar que los correos electronicos sean iguales y se envien los formularios
+    // Lógica para verificar que los correos electronicos sean iguales y se envien los formularios
     if (email === email2) {
       //cerrar modal
       handleClose();
-    //Datos a enviar a firestore
-    const order = {
-      comprador: {
-        nombre: { nombre },
-        email: { email },
-        direccion: { direccion },
-        telefono: { telefono },
-      },
-      productos: cart,
-      total: totalPrice,
-    };
-    //Callback
-    enviarCompra(order, setEmail, setDireccion, setNombre, setTelefono);
+      //Datos a enviar a firestore
+      const order = {
+        comprador: {
+          nombre: { nombre },
+          email: { email },
+          direccion: { direccion },
+          telefono: { telefono },
+        },
+        productos: cart,
+        total: totalPrice,
+      };
+      //Callback
+      enviarCompra(order, setEmail, setDireccion, setNombre, setTelefono);
     } else {
       // Los correos electrónicos no coinciden, mostrar error
       setMatchError(true);
@@ -85,7 +83,7 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
-        
+
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
                 Correo electrónico
@@ -98,8 +96,8 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
                 onChange={handleEmailChange}
                 required
               />
-               <label htmlFor="email" className="form-label">
-                Correo electrónico 2
+              <label htmlFor="email" className="form-label">
+                Reingresa correco electrónico
               </label>
               <input
                 type="email"
@@ -109,10 +107,7 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
                 onChange={handleEmail2Change}
                 required
               />
-        {matchError && <p>Los correos electrónicos no coinciden.</p>}
-              {/* <div className="form-text">
-                Por favor, introduce un correo electrónico válido.
-              </div> */}
+              {matchError && <p style={{ color: "red" }}>Los correos electrónicos no coinciden.</p>}
             </div>
 
             <div className="mb-3">
@@ -164,9 +159,6 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
         </Modal.Body>
 
         <Modal.Footer>
-          {/* {id && <><h3>¡Su orden de compra ha sido creada con exito!</h3>
-           <h2>Su numero de orden es: {id}</h2></>} */}
-
           <button className="btn btn-dark" onClick={handleClose}>
             Cerrar
           </button>

@@ -8,7 +8,6 @@ const ItemListCategories = ({
   stock,
   id,
   imagen,
-  categoria,
   removeItem,
   addToCart,
 }) => {
@@ -24,12 +23,11 @@ const ItemListCategories = ({
   return (
     <>
       <div key={id} className="card">
-        <img className="card-img-top img" src={imagen} alt="Card cap"></img>
+        <img className="card-img-top img" src={imagen} alt={nombre}></img>
         <div className="card-sody">
           <h5 className="card-title">{nombre}</h5>
-          <h3 className="card-text"> Precio ${precio}</h3>
-          <h4>{categoria}</h4>
-          <h4>Stock disponible: {stock}</h4>
+          <p className="card-text"> Precio ${precio}</p>
+          <p>Stock disponible: {stock}</p>
           <Link className="btn btn-secondary agregar" to={`/itemdetail/${id}`}>
             Ver detalle del producto
           </Link>
@@ -53,7 +51,7 @@ const ItemListCategories = ({
               className="btn btn-primary agregar"
               onClick={() => removeItem(id)}
             >
-              Eliminar 1 del carrito
+              Eliminar 1 unidad
             </button>
           )}
 

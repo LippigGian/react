@@ -19,22 +19,26 @@ const ItemDetail = ({
 
   return (
     <div className="detail">
+     
+      <div className="detail-producto">
       <button className="btn btn-secondary backBotton" onClick={handleGoBack}>
         Volver al listado
       </button>
-      <div className="card-sody">
-        <h1 className="card-title">{product.nombre}</h1>
-        <h4 className="card-text">Descripcion: {product.desc}.</h4>
+        <h5 className="card-title">{product.nombre}</h5>
+        <img  className="card-img"src={product.imagen} alt={product.nombre}></img>
+        <p className="card-text">{product.desc}.</p>
         {product.talle && (
-          <h4 className="card-subtitle"> Talle: {product.talle}</h4>
+          <p className="card-subtitle"> Talle: {product.talle}</p>
         )}
-        <h3 className="card-text"> Precio ${product.precio}</h3>
-        <h4>{product.categoria}</h4>
-        <img src={product.imagen} alt={product.nombre}></img>
-        <h4>Stock disponible: {product.stock}</h4>
-        <h3>{product.tipo}</h3>
-        <h2>{product.id}</h2>
-        <div className="producto-detalles-botones">
+        <p className="card-text"> Precio ${product.precio}</p>
+        <p>{product.categoria}</p>
+        
+       
+        <p>Stock disponible: {product.stock}</p>
+        </div>
+        <div className="card">
+          <div><p>Envios a todo el pais</p></div>
+        <div className="detail-producto-botones">
           <div className="botonera">
             <button className="btn btn-dark" onClick={() => sumarCarrito()}>
               {" "}
@@ -64,8 +68,9 @@ const ItemDetail = ({
             </div>
           )}
         </div>
+        </div>
       </div>
-    </div>
+    
   );
 };
 
