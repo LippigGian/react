@@ -9,6 +9,7 @@ const ItemDetail = ({
   cantidad,
   id,
   cantidadPorItem,
+  removeItem
 }) => {
   //Volver a la página anterior
   const navigate = useNavigate();
@@ -18,13 +19,14 @@ const ItemDetail = ({
   };
 
   return (
-    <div className="detail">
+    <>      <button className="btn btn-secondary backBotton" onClick={handleGoBack}>
+    Volver al listado
+  </button>
+    <div className="detail card">
      
       <div className="detail-producto">
-      <button className="btn btn-secondary backBotton" onClick={handleGoBack}>
-        Volver al listado
-      </button>
-        <h5 className="card-title">{product.nombre}</h5>
+
+        
         <img  className="card-img"src={product.imagen} alt={product.nombre}></img>
         <p className="card-text">{product.desc}.</p>
         {product.talle && (
@@ -37,6 +39,7 @@ const ItemDetail = ({
         <p>Stock disponible: {product.stock}</p>
         </div>
         <div className="card">
+        <h3 className="card-title">{product.nombre}</h3>
           <div><p>Envios a todo el pais</p></div>
         <div className="detail-producto-botones">
           <div className="botonera">
@@ -57,20 +60,29 @@ const ItemDetail = ({
             )}
           </div>
           <button
-            className="btn btn-primary agregar"
+            className="btn btn-success agregar"
             onClick={() => addToCart(product.nombre, product.precio, id)}
           >
             Agregar al carrito
           </button>
           {cantidadPorItem > 0 && (
+            <button
+              className="btn btn-danger agregar"
+              onClick={() => removeItem(id)}
+            >
+              Eliminar 1 unidad
+            </button>
+          )}
+          {cantidadPorItem > 0 && (
             <div>
               <h3>Cantidad: {cantidadPorItem}</h3>
             </div>
           )}
+          <p>30 días de garantía de fábrica.</p>
         </div>
         </div>
       </div>
-    
+      </>
   );
 };
 

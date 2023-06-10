@@ -41,7 +41,7 @@ const Item = ({
             </button>
           ) : (
             <button
-              className="btn btn-primary agregar"
+              className="btn btn-success agregar"
               onClick={() => addToCart(id, nombre, precio)}
             >
               Sumar 1 unidad
@@ -49,7 +49,7 @@ const Item = ({
           )}
           {cantidadPorItem > 0 && (
             <button
-              className="btn btn-primary agregar"
+              className="btn btn-danger agregar"
               onClick={() => removeItem(id)}
             >
               Eliminar 1 unidad

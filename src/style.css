@@ -23,6 +23,8 @@ div h1 {
 .card {
   margin: 25px;
   display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .agregar {
@@ -50,10 +52,12 @@ div h1 {
 }
 
 .detail {
+ 
+  align-self: center;
   margin: 25px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  /* align-items: center; */
 }
 .detail-producto
 {
@@ -118,10 +122,17 @@ html {
 .backBotton{
   width: auto;
   align-self: center;
-  justify-self: center;
+  justify-self: left;
   margin: 25px;
 }
 .body{
   display: flex;
   flex-direction: column;
 }
+.detail-producto-botones
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
