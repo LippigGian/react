@@ -23,7 +23,7 @@ const ItemListCategories = ({
 
   return (
     <>
-      <div className="card">
+      <div key={id} className="card">
         <img className="card-img-top img" src={imagen} alt="Card cap"></img>
         <div className="card-sody">
           <h5 className="card-title">{nombre}</h5>

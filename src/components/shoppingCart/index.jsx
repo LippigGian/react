@@ -62,22 +62,22 @@ const ShoppingCart = () => {
         <tbody>
           {cart.map((productos) => {
             return (
-              <>
-                <tr key={productos.id}>
-                  <td>{productos.nombre}</td>
-                  <td>{productos.quantity}</td>
-                  <td>{productos.precio}</td>
-                  <td>{productos.precio * productos.quantity}</td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => removeItem(productos.id)}
-                    >
-                      Eliminar 1 del carrito
-                    </button>
-                  </td>
-                </tr>
-              </>
+
+              <tr key={productos.id}>
+                <td>{productos.nombre}</td>
+                <td>{productos.quantity}</td>
+                <td>{productos.precio}</td>
+                <td>{productos.precio * productos.quantity}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => removeItem(productos.id)}
+                  >
+                    Eliminar 1 del carrito
+                  </button>
+                </td>
+              </tr>
+
             );
           })}
         </tbody>

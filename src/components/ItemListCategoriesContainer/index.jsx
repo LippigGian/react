@@ -27,7 +27,7 @@ const ItemListCategoriesContainer = () => {
     );
     getDocs(filteredCollectionRef).then((querySnapshot) => {
       setProduct(
-        querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        querySnapshot.docs.map((doc) => ({  id: doc.id, ...doc.data() }))
       );
     });
   }, [categoria]);
@@ -85,14 +85,14 @@ const ItemListCategoriesContainer = () => {
       <div className="productsContainer">
         {product.map((product) => {
           return (
-            <>
+          
               <ItemListCategories
                 key={product.id}
                 {...product}
                 removeItem={removeItem}
                 addToCart={addToCart}
               ></ItemListCategories>
-            </>
+            
           );
         })}
       </div>
