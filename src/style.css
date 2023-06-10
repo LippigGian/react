@@ -21,6 +21,7 @@ div h1 {
 }
 
 .card {
+  padding: 15px;
   margin: 25px;
   display: flex;
   justify-content: space-between;
@@ -47,23 +48,32 @@ div h1 {
   flex-direction: row;
 }
 
-.detail-img {
+/* .detail-img {
   width: 50%;
-}
+} */
 
-.detail {
- 
-  align-self: center;
-  margin: 25px;
+.detail-container {
+
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
+  width: 50%;
+  align-self: center;
+    border-radius: 10px; 
+    border: 1px solid #ccc; 
+    padding: 20px; 
+    margin: 25px;
+    justify-content: space-between;
 }
+ 
 .detail-producto
 {
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+.detail-card
+{
+  min-width: 30%;
 }
 
 .title {

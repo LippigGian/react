@@ -25,10 +25,9 @@ const Item = ({
       <div className="card">
         <img className="card-img-top img" src={imagen} alt={nombre}></img>
         <div className="card-sody">
-          <h5 className="card-title">{nombre}</h5>
-          <h3 className="card-text"> Precio ${precio}</h3>
-          <h4>{categoria}</h4>
-          <h4>Stock disponible: {stock}</h4>
+          <h4 className="card-title">{nombre}</h4>
+          <p className="card-text"><strong> Precio </strong>${precio}</p>
+          <p className="card-text"><strong>Stock disponible: </strong> {stock}</p>
           <Link className="btn btn-secondary agregar" to={`/itemdetail/${id}`}>
             Ver detalle del producto
           </Link>

@@ -22,7 +22,7 @@ const ItemDetail = ({
     <>      <button className="btn btn-secondary backBotton" onClick={handleGoBack}>
     Volver al listado
   </button>
-    <div className="detail card">
+    <div className="detail-container">
      
       <div className="detail-producto">
 
@@ -35,12 +35,12 @@ const ItemDetail = ({
         <p className="card-text"> Precio ${product.precio}</p>
         <p>{product.categoria}</p>
         
-       
-        <p>Stock disponible: {product.stock}</p>
         </div>
-        <div className="card">
+        <div className="detail-card card">
         <h3 className="card-title">{product.nombre}</h3>
-          <div><p>Envios a todo el pais</p></div>
+        <p>Envios a todo el pais</p>
+        <p>Stock disponible: {product.stock}</p>
+     
         <div className="detail-producto-botones">
           <div className="botonera">
             <button className="btn btn-dark" onClick={() => sumarCarrito()}>
@@ -75,7 +75,7 @@ const ItemDetail = ({
           )}
           {cantidadPorItem > 0 && (
             <div>
-              <h3>Cantidad: {cantidadPorItem}</h3>
+              <h3>Cantidad en carrito: {cantidadPorItem}</h3>
             </div>
           )}
           <p>30 días de garantía de fábrica.</p>

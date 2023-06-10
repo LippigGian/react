@@ -28,6 +28,7 @@ export const ItemListContainer = () => {
 
   return (
     <div className="body">
+      <h1>¡Bienvenidos a la tienda!</h1>
       <ItemList products={products} key={products.id}></ItemList>
     </div>
   );
