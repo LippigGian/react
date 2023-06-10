@@ -72,7 +72,7 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
     }
   };
   return (
-    <>
+    <div className="d-flex m-2">
       <Button variant="success" className="m-auto" onClick={handleShow}>
         Finalizar compra
       </Button>
@@ -164,7 +164,7 @@ const CheckOutForm = ({ totalPrice, enviarCompra }) => {
           </button>
         </Modal.Footer>
       </Modal>
-    </>
+      </div>
   );
 };
 

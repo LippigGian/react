@@ -48,7 +48,7 @@ const ShoppingCart = () => {
 
   return (
     <div className="body-cart d-flex flex-column">
-      <h3 className="text-center">Items en el carrito: {quantity}</h3>
+    
       <table className="table" border="1">
         <thead>
           <tr>
@@ -83,11 +83,13 @@ const ShoppingCart = () => {
         </tbody>
       </table>
       <div></div>
-      <h3 className="text-center">Precio final: {totalPrice}</h3>
-      <button className="btn btn-dark m-auto" onClick={handleButtonClick}>
+      <div className="d-flex justify-content-evenly">
+      <h3 className="text-center"><strong>Precio final:</strong> ${totalPrice}</h3>  
+      <h3 className="text-center"><strong>Items en el carrito:</strong> {quantity}</h3>
+      </div>
+      <button className="btn btn-danger m-auto" onClick={handleButtonClick}>
         Vaciar carrito de compras
       </button>
-
       <Checkout totalPrice={totalPrice}></Checkout>
     </div>
   );

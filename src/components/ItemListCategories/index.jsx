@@ -25,23 +25,23 @@ const ItemListCategories = ({
       <div key={id} className="card">
         <img className="card-img-top img" src={imagen} alt={nombre}></img>
         <div className="card-sody">
-          <h4 className="card-title">{nombre}</h4>
-          <p className="card-text"><strong> Precio </strong>${precio}</p>
-          <p className="card-text"><strong>Stock disponible: </strong> {stock}</p>
+          <h5 className="card-title">{nombre}</h5>
+          <p className="card-text"> Precio ${precio}</p>
+          <p>Stock disponible: {stock}</p>
           <Link className="btn btn-secondary agregar" to={`/itemdetail/${id}`}>
             Ver detalle del producto
           </Link>
           {cantidadPorItem === 0 ? (
             <button
               className="btn btn-primary agregar"
-              onClick={() => addToCart(id, nombre, precio)}
+              onClick={() => addToCart(nombre, id, precio)}
             >
               Agregar al carrito
             </button>
           ) : (
             <button
               className="btn btn-success agregar"
-              onClick={() => addToCart(id, nombre, precio)}
+              onClick={() => addToCart(nombre, id, precio)}
             >
               Sumar 1 unidad
             </button>

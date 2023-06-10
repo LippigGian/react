@@ -28,16 +28,15 @@ const ItemDetail = ({
 
         
         <img  className="card-img"src={product.imagen} alt={product.nombre}></img>
-        <p className="card-text">{product.desc}.</p>
+        <h4 className="card-text"><strong>Detalle del producto: </strong><br></br>{product.desc}.</h4>
         {product.talle && (
-          <p className="card-subtitle"> Talle: {product.talle}</p>
+          <p className="card-subtitle"> <strong>Talle:</strong> {product.talle}</p>
         )}
-        <p className="card-text"> Precio ${product.precio}</p>
-        <p>{product.categoria}</p>
+        <p className="card-text"><strong> Precio</strong> ${product.precio}</p>
         
         </div>
         <div className="detail-card card">
-        <h3 className="card-title">{product.nombre}</h3>
+        <h3 className="card-title nombre">{product.nombre}</h3>
         <p>Envios a todo el pais</p>
         <p>Stock disponible: {product.stock}</p>
      
