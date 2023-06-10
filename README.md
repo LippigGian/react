@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# React Ecommerce - Readme
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositorio contiene la versión final de un proyecto de ecommerce basado en React para CoderHouse.
 
-## Available Scripts
+## Instalación
 
-In the project directory, you can run:
+Para ejecutar este proyecto localmente, debes tener Node.js y npm (Node Package Manager) instalados en tu computadora. Sigue estos pasos para configurar el proyecto:
 
-### `npm start`
+1. Clona el repositorio:
+   ```
+   git clone https://github.com/LippigGian/react.git
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Navega al directorio del proyecto:
+   ```
+   cd react/main
+   ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Instala las dependencias:
+   ```
+   npm install
+   ```
 
-### `npm test`
+4. Inicia el servidor de desarrollo:
+   ```
+   npm start
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. Esto último abrirá tu navegador web y visitará `http://localhost:3000` para ver la aplicación en funcionamiento.
 
-### `npm run build`
+## Características
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este proyecto de ecommerce incluye las siguientes características:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Listado de productos y filtrado por categoría.
+- Página de detalles del producto.
+- Funcionalidad de carrito de compras.
+- Acceso disponible al carrito de compras en todo momento.
+- Proceso de checkout con verificación de email.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tecnologías Utilizadas
 
-### `npm run eject`
+El proyecto está construido con las siguientes tecnologías:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React
+- React Router
+- Firebase (Firestore y Autenticación)
+- Bootstrap
+- React-bootstrap
+- Sweet alert
+- HTML5
+- CSS3
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Estructura de Carpetas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+La estructura de carpetas del proyecto está organizada de la siguiente manera:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+.
+├── public/              # Assets públicos y plantilla HTML
+├── src/                 # Código fuente
+│   ├── components/      # Componentes de interfaz de usuario reutilizables
+│   ├── pages/           # Páginas o vistas de la aplicación
+│   └── App.js            # Componente principal de la aplicación
+├── package.json         # Dependencias del proyecto y scripts
+└── README.md            # Documentación del proyecto
+```
 
-## Learn More
+## Breve review de la aplicación
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Los productos que se renderizan en esta aplicación son solicitados de firebase. 
+- El filtrado de productos se realiza del lado del servidor y no del front.
+- En el navbar hay un desplegable con 5 categorias distintas.
+- Cada card tiene un boton para ver el detalle del producto o para agregarlo al carrito de compras.
+- En el carrito de compras veremos el nombre, cantidad individual, precio unitario e importe de cada producto.
+- El carrito mostrará el precio total de la compra y la cantidad de productos que se estan llevando.
+- En el carrito podremos eliminar uno a uno los productos, o bien vaciar el carrito entero. Ademas de poder finalizar la compra.
+- Al finalizar la compra se deberá completar un formulario, en el cual hay una doble verificacion de email.
+- Una vez finalizada la compra se nos mostrará el código único de la misma provisto por firestore.

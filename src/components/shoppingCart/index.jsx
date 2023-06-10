@@ -88,7 +88,7 @@ const ShoppingCart = () => {
       <h3 className="text-center"><strong>Items en el carrito:</strong> {quantity}</h3>
       </div>
       <button className="btn btn-danger m-auto" onClick={handleButtonClick}>
-        Vaciar carrito de compras
+        Vaciar carrito
       </button>
       <Checkout totalPrice={totalPrice}></Checkout>
     </div>

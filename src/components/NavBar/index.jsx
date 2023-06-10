@@ -76,11 +76,6 @@ const NavBar = () => {
                       Aire acondiconado
                     </Link>
                   </li>
-                  <li>
-                    <Link className="dropdown-item" to="/fbcollection">
-                      Collection
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </li>
