@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../shoppingCartContext/ShoppingCartContext";
 import carrito from "../CartWidget/Assets/icon-cart.png";
+import { CartWidget } from "../CartWidget/CartWidget";
 
 const NavBar = () => {
   // eslint-disable-next-line
@@ -29,12 +30,12 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/contact-us">
+              <NavLink className="nav-link text-white" to="/contact-us">
                 Contacto
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
-              <Link
+              <NavLink
                 className="nav-link dropdown-toggle text-white "
                 to="#"
                 role="button"
@@ -42,7 +43,7 @@ const NavBar = () => {
                 aria-expanded="false"
               >
                 Productos
-              </Link>
+              </NavLink>
               <div className="products">
                 <ul className="dropdown-menu">
                   <li>
@@ -84,12 +85,13 @@ const NavBar = () => {
             </li>
           </ul>
 
-          <div>
+          {/* <div>
             <Link to="/cart">
               <img src={carrito} alt="cart-widget"></img>
             </Link>
             ({quantity})
-          </div>
+          </div> */}
+          <CartWidget/>
         </div>
       </div>
     </nav>
