@@ -3,7 +3,6 @@ import { CartContext } from "../context/CartContext";
 
 const CheckoutForm = ({ enviarCompra }) => {
   const { cart, priceTotal } = useContext(CartContext);
-
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -69,81 +68,83 @@ const CheckoutForm = ({ enviarCompra }) => {
   };
   return (
     <div className="form">
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">
-          Correo electrónico
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-          required
-        />
-        <label htmlFor="email" className="form-label">
-          Reingresa correco electrónico
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          value={email2}
-          onChange={handleEmail2Change}
-          required
-        />
-        {matchError && (
-          <p style={{ color: "red" }}>Los correos electrónicos no coinciden.</p>
-        )}
-      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Correo electrónico
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            required
+          />
+          <label htmlFor="email" className="form-label">
+            Reingresa correco electrónico
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={email2}
+            onChange={handleEmail2Change}
+            required
+          />
+          {matchError && (
+            <p style={{ color: "red" }}>
+              Los correos electrónicos no coinciden.
+            </p>
+          )}
+        </div>
 
-      <div className="mb-3">
-        <label htmlFor="direccion" className="form-label">
-          Dirección
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="direccion"
-          value={direccion}
-          onChange={handleDireccionChange}
-          required
-        />
-      </div>
+        <div className="mb-3">
+          <label htmlFor="direccion" className="form-label">
+            Dirección
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="direccion"
+            value={direccion}
+            onChange={handleDireccionChange}
+            required
+          />
+        </div>
 
-      <div className="mb-3">
-        <label htmlFor="nombre" className="form-label">
-          Nombre completo
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="nombre"
-          value={nombre}
-          onChange={handleNombreChange}
-          required
-        />
-      </div>
+        <div className="mb-3">
+          <label htmlFor="nombre" className="form-label">
+            Nombre completo
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="nombre"
+            value={nombre}
+            onChange={handleNombreChange}
+            required
+          />
+        </div>
 
-      <div className="mb-3">
-        <label htmlFor="telefono" className="form-label">
-          Teléfono
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="telefono"
-          value={telefono}
-          onChange={handleTelefonoChange}
-          required
-        />
-      </div>
+        <div className="mb-3">
+          <label htmlFor="telefono" className="form-label">
+            Teléfono
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="telefono"
+            value={telefono}
+            onChange={handleTelefonoChange}
+            required
+          />
+        </div>
 
-      <button type="submit" className="btn btn-primary">
-        Enviar
-      </button>
-    </form>
+        <button type="submit" className="btn btn-primary">
+          Enviar
+        </button>
+      </form>
     </div>
   );
 };

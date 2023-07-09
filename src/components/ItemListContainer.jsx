@@ -2,7 +2,7 @@ import ItemList from './ItemList'
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { query, collection, where, getDocs } from 'firebase/firestore';
-import { collection, getDocs, where, query, getFirestore } from "firebase/firestore";
+import { collection, getDocs, where, query } from "firebase/firestore";
 import {db} from '../services/firebase/firebase'
 
 const ItemListContainer = () => {

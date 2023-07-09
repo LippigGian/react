@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
-const ItemCount = ({ stock, inicial, onAdd }) => {
+const ItemCount = ({ stock, inicial, agregar }) => {
   const [quantity, setQuantity] = useState(1);
-
   const sumarProducto = () => quantity < stock && setQuantity(quantity + 1);
-
   const restarProducto = () => quantity > inicial && setQuantity(quantity - 1);
 
   return (
@@ -29,7 +27,7 @@ const ItemCount = ({ stock, inicial, onAdd }) => {
       </div>
       <button
         className="btn btn-success agregar"
-        onClick={() => onAdd(quantity)}
+        onClick={() => agregar(quantity)}
       >
         Agregar al carrito
       </button>

@@ -48,36 +48,29 @@ div h1 {
   flex-direction: row;
 }
 
-/* .detail-img {
-  width: 50%;
-} */
 
 .detail-container {
-
   display: flex;
   flex-direction: row;
   width: 50%;
   align-self: center;
-    border-radius: 10px; 
-    border: 1px solid #ccc; 
-    padding: 20px; 
-    margin: 25px;
-    justify-content: space-between;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 25px;
+  justify-content: space-between;
 }
- 
-.detail-producto
-{
+
+.detail-producto {
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: space-between;
 }
-.detail-card
-{
+.detail-card {
   min-width: 30%;
 }
-.nombre
-{
+.nombre {
   font-size: 2.5rem;
 }
 
@@ -86,7 +79,6 @@ div h1 {
 }
 html {
   min-height: 100%;
-  /* position: relative; */
 }
 
 .footer {
@@ -97,13 +89,13 @@ html {
   flex-direction: column;
   min-height: 100vh;
 }
-.container-input{
+.container-input {
   display: flex;
   justify-content: center;
   margin: 15px;
 }
-.input{
-  width:50%;
+.input {
+  width: 50%;
   text-align: center;
 }
 .spinner {
@@ -125,36 +117,34 @@ html {
     transform: rotate(360deg);
   }
 }
-.containerLoader{
+.containerLoader {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 50px;
 }
-.containerLoader h2{
+.containerLoader h2 {
   font-size: 50px;
 }
-.backBotton{
+.backBotton {
   width: auto;
   align-self: center;
   justify-self: left;
   margin: 25px;
 }
-.body{
+.body {
   display: flex;
   flex-direction: column;
 }
-.detail-producto-botones
-{
+.detail-producto-botones {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .link-style {
   color: inherit;
-  text-decoration: none; 
+  text-decoration: none;
 }
-
 
 .form {
   max-width: 400px;

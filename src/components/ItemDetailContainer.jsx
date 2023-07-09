@@ -6,7 +6,7 @@ import { getDoc, doc, getFirestore } from "firebase/firestore";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
   const id = useParams().id;
-  const [msg, setMsg] = useState("Cargando...");
+
   console.log(id);
   useEffect(() => {
     const db = getFirestore();
@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
       if (doc.exists()) {
         setProduct({ id: doc.id, ...doc.data() });
       } else {
-        setMsg("No se encontraron productos ");
+        console.log("No se encontraron productos ");
       }
     });
     //no estoy seguro si debe actualizarse con el cambio del id

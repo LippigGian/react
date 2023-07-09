@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 const ItemDetail = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
-  const onAdd = (quantity) => {
+  const agregar = (quantity) => {
     addToCart(product, quantity);
   };
 
@@ -40,7 +40,7 @@ const ItemDetail = ({ product }) => {
           <p>Stock disponible: {product.stock}</p>
 
           <div className="detail-producto-botones">
-            <ItemCount inicial={1} stock={product.stock} onAdd={onAdd} />
+            <ItemCount inicial={1} stock={product.stock} agregar={agregar} />
             <p>30 días de garantía de fábrica.</p>
           </div>
         </div>
