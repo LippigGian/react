@@ -9,21 +9,16 @@ import Swal from "sweetalert2";
 
 const Checkout = () => {
   const {setCart, priceTotal, clear}=useContext(CartContext)
-  const [orderId,setOrder]=useState("")
+  const [orderId,setOrderId]=useState("")
   const [id, setId] = useState(undefined);
-  const venta=(data)=>{
-    ventasData(data).then(orderId=>{
-      setOrder(orderId);
-    })
-    
-  }
-  console.log(orderId)
+ 
   
 
   //Prueba para escribir en firestore
   const enviarCompra = async (
     order,
     setEmail,
+    setEmail2,
     setDireccion,
     setNombre,
     setTelefono
@@ -37,6 +32,7 @@ const Checkout = () => {
 
       // Reiniciar los valores de los campos del formulario
       setEmail("");
+      setEmail2("")
       setDireccion("");
       setNombre("");
       setTelefono("");
@@ -58,7 +54,7 @@ const Checkout = () => {
     <div>
       {!orderId ?
       <div>
-      <CheckoutForm enviarCompra={enviarCompra} onSend={venta}/>
+      <CheckoutForm enviarCompra={enviarCompra} />
       </div>:
       <div>
         <h3 className='text-center'>felicitaciones por su compra!!</h3>

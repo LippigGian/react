@@ -150,4 +150,7 @@ html {
   flex-direction: column;
   align-items: center;
 }
-
+.link-style {
+  color: inherit; /* Utiliza el color heredado del elemento padre */
+  text-decoration: none; /* Sin subrayado */
+}

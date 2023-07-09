@@ -13,6 +13,7 @@ const ItemList = ({products}) => {
   //     </div>
   //   );
   // }
+  
   return (
     // <div className="containerCard card-group aline-items-center">
     //   {products.map((item, id) =>(
@@ -33,6 +34,7 @@ const ItemList = ({products}) => {
         {products.map((product) => {
           return (
             <Item
+              product={product}
               key={product.id}
               {...product}
               // removeItem={removeItem}

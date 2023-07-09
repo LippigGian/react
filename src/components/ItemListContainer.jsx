@@ -6,7 +6,7 @@ import { collection, getDocs, where, query, getFirestore } from "firebase/firest
 import {db} from '../services/firebase/firebaseconfig'
 
 const ItemListContainer = ({greeting}) => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState();
   // const [prods,setProds]= useState([]);
   const {categoryId}=useParams()
 
@@ -44,12 +44,20 @@ const ItemListContainer = ({greeting}) => {
   //     })
   // },[categoryId])
 
+  if (!products) {
+    return (
+      <div className="containerLoader">
+        <h2>Cargando...</h2>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   return (
-    <section>
+    <div className="body">
         <h1 className="text-center m-2">{greeting}</h1>
         <ItemList products={products} />
         
-    </section>
+    </div>
     // products.map((product) => {
     //   return (
     //     <h2>{product.nombre}

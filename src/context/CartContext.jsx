@@ -1,10 +1,10 @@
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
 
 export const CartContext = createContext()
 
 const CartContextProvider = ({children}) => {
-//  const [cantidad, setCantidad] = useState(0);
-const [cantidad, setCantidad] = useState(0);
+
 
     const [ cart, setCart ] = useState([])
     console.log (cart)
@@ -14,17 +14,9 @@ const [cantidad, setCantidad] = useState(0);
         return cart.some(pr => pr.id === id)
     }
 
-    // const addItem = (product, quantity) => {
-    //     if(!isInCart(product.id)){
-    //         setCart(prev=>[...prev,{...product,quantity}])
-    //     }else {
-    //         console.log("el producto ya fue agregado al carrito")
-    //     }
-    // }
 
-
-    // IA
-    const addItem = (product, quantity) => {
+    // Gian
+    const addToCart = (product, quantity) => {
         if (!isInCart(product.id)) {
           setCart(prev => [...prev, { ...product, quantity }]);
         } else {
@@ -39,49 +31,24 @@ const [cantidad, setCantidad] = useState(0);
         }
       };
       
-      
-    //gian modificado
 
-    // const addItem = (nombre, precio, id,  quantity) => {
-    //     console.log(id)
-    //     setCantidad(0);
-    //     setCart((currentItems) => {
-    //       const isItemsFound = currentItems.find((item) => item.id === id);
-    //       if (isItemsFound) {
-    //         return currentItems.map((item) => {
-    //           if (item.id === id) {
-    //             return { ...item, quantity: item.quantity + quantity, nombre};
-    //           } else {
-    //             return item;
-    //           }
-    //         });
-    //       } else {
-    //         return [...currentItems, { id, quantity: quantity, precio, nombre }];
-    //       }
-    //     });
-    //   };
+      const vaciarCarrito = () => {
+        Swal.fire({
+          title: "¿Estás seguro?",
+          text: "Esta acción no se puede deshacer",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Sí",
+          cancelButtonText: "No",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            setCart([]);
+          } else {
+            // Código a ejecutar si se cancela la acción
+          }
+        });
+      };
 
-    //   const addToCart = (nombre, precio, id, quantity) => {
-    //     console.log(quantity)
-    //     setCantidad(0);
-    //     setCart((currentItems) => {
-    //       const isItemsFound = currentItems.find((item) => item.id === id);
-    //       if (isItemsFound) {
-    //         return currentItems.map((item) => {
-    //           if (item.id === id) {
-    //             return { ...item, quantity: item.quantity + quantity, nombre };
-    //           } else {
-    //             return item;
-    //           }
-    //         });
-    //       } else {
-    //         return [...currentItems, { id, quantity: quantity, precio, nombre }];
-    //       }
-    //     });
-    //   };
-
-      
-      
 
     const removeItem = (id) => {
         const products = cart.filter(pr => pr.id !== id)
@@ -89,10 +56,10 @@ const [cantidad, setCantidad] = useState(0);
         console.log ("eliminando...")
     }
 
-    const clear = () => {
-        setCart([])
-        console.log ("limpiando")
-    }
+    // const clear = () => {
+    //     setCart([])
+    //     console.log ("limpiando")
+    // }
 
     const cartTotal = () => {
         return cart.reduce((total, item) => total += item.quantity, 0)
@@ -103,7 +70,7 @@ const [cantidad, setCantidad] = useState(0);
     }
 
     return (
-        <CartContext.Provider value={{cart,setCart, addItem, removeItem, clear,cartTotal, priceTotal}}>
+        <CartContext.Provider value={{cart,setCart, addToCart, removeItem,cartTotal, priceTotal, vaciarCarrito}}>
             {children}
         </CartContext.Provider>
     )
