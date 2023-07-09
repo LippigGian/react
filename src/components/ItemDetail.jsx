@@ -10,8 +10,8 @@ const ItemDetail = ({ product }) => {
   };
 
   return (
-    <>
-      {" "}
+    
+      
       <div className="detail-container">
         <div className="detail-producto">
           <img
@@ -24,10 +24,9 @@ const ItemDetail = ({ product }) => {
             <br></br>
             {product.desc}.
           </h4>
-          <h5>el id es: {product.id}</h5>
           {product.talle && (
             <p className="card-subtitle">
-              {" "}
+              
               <strong>Talle:</strong> {product.talle}
             </p>
           )}
@@ -46,7 +45,7 @@ const ItemDetail = ({ product }) => {
           </div>
         </div>
       </div>
-    </>
+ 
   );
 };
 

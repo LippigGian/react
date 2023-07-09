@@ -17,7 +17,6 @@ const Item = ({ product }) => {
         <h3 className="card-text"> Precio ${product.precio}</h3>
         <h4>{product.categoria}</h4>
         <h4>Stock disponible: {product.stock}</h4>
-        <h5>el id es: {product.id}</h5>
         <button
           className="btn btn-primary agregar"
           onClick={() => addToCart(product, 1)}

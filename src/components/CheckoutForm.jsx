@@ -68,6 +68,7 @@ const CheckoutForm = ({ enviarCompra }) => {
     }
   };
   return (
+    <div className="form">
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">
@@ -143,6 +144,7 @@ const CheckoutForm = ({ enviarCompra }) => {
         Enviar
       </button>
     </form>
+    </div>
   );
 };
 

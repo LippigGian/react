@@ -10,9 +10,7 @@ const Checkout = () => {
   const {setCart}=useContext(CartContext)
   const [orderId,setOrderId]=useState("")
   const [id, setId] = useState(undefined);
- 
   
-
   //Prueba para escribir en firestore
   const enviarCompra = async (
     order,

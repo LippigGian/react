@@ -7,7 +7,7 @@ const Cart = () => {
 
 return (
 
-    <div className="body-cart d-flex flex-column">
+    <div className="body-cart d-flex flex-column m-5">
     <table className="table" border="1">
       <thead>
         <tr>
@@ -26,7 +26,7 @@ return (
               <td>{productos.quantity}</td>
               <td>{productos.precio}</td>
               <td>{productos.precio * productos.quantity}</td>
-              <td>
+              <td className='d-flex justify-content-center'>
                 <button
                   className="btn btn-danger"
                   onClick={() => removeItem(productos.id)}
@@ -48,11 +48,12 @@ return (
         <strong>Items en el carrito:</strong> {totalProductos()}
       </h3>
     </div>
-    <button className="btn btn-danger m-auto" onClick={vaciarCarrito}>
+    <div className='d-flex m-5'>
+        <button className="btn btn-success m-auto"><Link className="link-style" to='/checkout'>Finalizar compra</Link></button>
+        <button className="btn btn-danger m-auto" onClick={vaciarCarrito}>
       Vaciar carrito
     </button>
-          
-        <button className="btn btn-success m-auto"><Link className="link-style" to='/checkout'>Finalizar compra</Link></button>
+  </div>
   </div>
 
   )

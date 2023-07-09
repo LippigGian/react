@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs, where, query, getFirestore } from "firebase/firestore";
 import {db} from '../services/firebase/firebase'
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState();
   // const [prods,setProds]= useState([]);
   const {categoryId}=useParams()
@@ -36,7 +36,8 @@ const ItemListContainer = ({greeting}) => {
   }
   return (
     <div className="body">
-        <h1 className="text-center m-2">{greeting}</h1>
+      {categoryId? <h1 className="text-center m-2">Categoria: {categoryId}</h1> : <h1 className="text-center m-2">¡Bienvenidos a la tienda !</h1>}
+        
         <ItemList products={products} />
         
     </div>
