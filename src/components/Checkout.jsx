@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import CheckoutForm from './CheckoutForm'
-import { ventasData } from '../services/firebase/ventasData'
 import {writeToFirestore} from "../services/firebase/ventas"
 import { CartContext } from '../context/CartContext'
 import Swal from "sweetalert2";
@@ -8,7 +7,7 @@ import Swal from "sweetalert2";
 
 
 const Checkout = () => {
-  const {setCart, priceTotal, clear}=useContext(CartContext)
+  const {setCart}=useContext(CartContext)
   const [orderId,setOrderId]=useState("")
   const [id, setId] = useState(undefined);
  

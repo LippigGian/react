@@ -4,11 +4,11 @@ import { CartContext } from "../context/CartContext";
 import cart from "../Assets/icon-cart.png";
 
 export const CartWidget = () => {
-  const { cartTotal } = useContext(CartContext);
+  const { totalProductos } = useContext(CartContext);
   return (
     <Link to="/Cart">
       <img src={cart} alt="cart-widget"></img>
-      <span className="text-dark ">({cartTotal()})</span>
+      <span className="text-dark ">({totalProductos()})</span>
     </Link>
   );
 };

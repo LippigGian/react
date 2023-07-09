@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { query, collection, where, getDocs } from 'firebase/firestore';
 import { collection, getDocs, where, query, getFirestore } from "firebase/firestore";
-import {db} from '../services/firebase/firebaseconfig'
+import {db} from '../services/firebase/firebase'
 
 const ItemListContainer = ({greeting}) => {
   const [products, setProducts] = useState();
@@ -26,24 +26,6 @@ const ItemListContainer = ({greeting}) => {
     });
   }, [categoryId]);
 
-  // useEffect (()=>{
-  //   const collectionRef= categoryId
-  //   ?query(collection(db,'productos'), where ('categoryId',"==", categoryId))
-  //   : collection (db, 'productos')
-
-  //   getDocs(collectionRef)
-  //     .then (response=>{
-  //       const productsAdapted=response.docs.map((doc) => {
-  //         const data = doc.data()
-  //         return {id:doc.id,...data}
-  //       })
-  //       setProds(productsAdapted)
-  //     })
-  //     .catch(error=>{
-  //     console.log (error)
-  //     })
-  // },[categoryId])
-
   if (!products) {
     return (
       <div className="containerLoader">
@@ -58,12 +40,6 @@ const ItemListContainer = ({greeting}) => {
         <ItemList products={products} />
         
     </div>
-    // products.map((product) => {
-    //   return (
-    //     <h2>{product.nombre}
-    //     </h2>
-    //   );
-    // })
   )
 }
 
